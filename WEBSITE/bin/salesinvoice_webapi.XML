@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>salesinvoice_webapi</name>
+    </assembly>
+    <members>
+        <member name="T:salesinvoice_webapi.SwaggerConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:salesinvoice_webapi.SwaggerConfig.Register">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:salesinvoice_webapi.SwaggerConfig.GetXmlCommentsPath">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:salesinvoice_webapi.Filters.CustomAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Called when an action is being authorized to determine whether access for this particular request is authorized.
+            </summary>
+            <param name="actionContext">The context.</param>
+            <returns>true if the control is authorized; otherwise, false.</returns>
+        </member>
+        <member name="T:salesinvoice_webapi.Filters.SwaggerResponseContentTypeAttribute">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+        </member>
+        <member name="M:salesinvoice_webapi.Filters.SwaggerResponseContentTypeAttribute.#ctor(System.String)">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+            <param name="responseType"></param>
+        </member>
+        <member name="P:salesinvoice_webapi.Filters.SwaggerResponseContentTypeAttribute.ResponseType">
+            <summary>
+            Response Content Type
+            </summary>
+        </member>
+        <member name="P:salesinvoice_webapi.Filters.SwaggerResponseContentTypeAttribute.Exclusive">
+            <summary>
+            Remove all other Response Content Types
+            </summary>
+        </member>
+        <member name="T:salesinvoice_webapi.Filters.CustomResponseContentTypeOperationFilter">
+            <summary>
+            Class will be used to add value for 'produces' in swagger
+            This class will be referred from SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.getList(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_customer_order_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>Get List of Customer Orders </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.getDetails(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_customer_order_detailRequest)">
+            <summary>
+            getDetails
+            </summary>
+            <remarks>Get Customer Order Details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.setDetails(salesinvoice_webapi.Models.salesinvoiceModels.save_manage_customer_orderRequest)">
+            <summary>
+            setDetails
+            </summary>
+            <remarks>Save Customer Order Details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.updateEvent(salesinvoice_webapi.Models.salesinvoiceModels.update_customer_order_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>Update Workflow events </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.cancel(salesinvoice_webapi.Models.salesinvoiceModels.cancel_customer_orderRequest)">
+            <summary>
+            cancel
+            </summary>
+            <remarks>cancel customer order </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.generatePI(salesinvoice_webapi.Models.salesinvoiceModels.generate_proforma_invoiceRequest)">
+            <summary>
+            generatePI
+            </summary>
+            <remarks>Generate Proforma Invoice </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_customerOrderController.getDetailsforPDFGen(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_customer_order_detail_for_docgenRequest)">
+            <summary>
+            getDetailsforPDFGen
+            </summary>
+            <remarks>Doc Gen Customer Order </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_inventory_adjustmentController.getList(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_inventory_adjustment_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>get list of inventory adjustment documents </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_inventory_adjustmentController.getDetail(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_inventory_adjustment_detailRequest)">
+            <summary>
+            getDetail
+            </summary>
+            <remarks>get Inventory Adjustment details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_inventory_adjustmentController.setDetail(salesinvoice_webapi.Models.salesinvoiceModels.save_manage_inventory_adjustmentRequest)">
+            <summary>
+            setDetail
+            </summary>
+            <remarks>Set Inventory Adjustment details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_inventory_adjustmentController.updateEvent(salesinvoice_webapi.Models.salesinvoiceModels.update_invadj_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>Update events </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.getList(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_parts_order_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>Get Parts Order List </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.getDetail(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_parts_order_detailRequest)">
+            <summary>
+            getDetail
+            </summary>
+            <remarks>Get Parts Order Details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.setDetail(salesinvoice_webapi.Models.salesinvoiceModels.save_manage_parts_orderRequest)">
+            <summary>
+            setDetail
+            </summary>
+            <remarks>Save PArts Order Details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.updateEvent(salesinvoice_webapi.Models.salesinvoiceModels.update_parts_order_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>update events of parts order </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.generatePartsOrder(salesinvoice_webapi.Models.salesinvoiceModels.generate_parts_order_documentRequest)">
+            <summary>
+            generatePartsOrder
+            </summary>
+            <remarks>Generate Parts Order </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_partsorderController.getDetailsforPDFGen(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_parts_order_detail_for_docgenRequest)">
+            <summary>
+            getDetailsforPDFGen
+            </summary>
+            <remarks>Generate Document of parts order </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.generateQuotation(salesinvoice_webapi.Models.salesinvoiceModels.generate_quotation_documentRequest)">
+            <summary>
+            generateQuotation
+            </summary>
+            <remarks>To generate quotation document </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.regenerateQuotation(salesinvoice_webapi.Models.salesinvoiceModels.regenerate_quotation_documentRequest)">
+            <summary>
+            regenerateQuotation
+            </summary>
+            <remarks>Regenerate the quotation number </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.getDetail(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_quotation_detailRequest)">
+            <summary>
+            getDetail
+            </summary>
+            <remarks>To retrieve the quotation details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.getList(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_quotation_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>To retrieve list of quotation </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.docGenQuotation(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_quotation_detail_for_docgenRequest)">
+            <summary>
+            docGenQuotation
+            </summary>
+            <remarks>To show pdf document </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.updateEvent(salesinvoice_webapi.Models.salesinvoiceModels.update_quotation_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>To update quotation status in workflow setup </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_quotationController.setDetail(salesinvoice_webapi.Models.salesinvoiceModels.save_manage_quotationRequest)">
+            <summary>
+            setDetail
+            </summary>
+            <remarks>Save Quotation </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.getDetail(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_salesinvoice_detailRequest)">
+            <summary>
+            getDetail
+            </summary>
+            <remarks>To retrieve sales invoice details </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.getList(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_manage_salesinvoice_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>To retrieve sales invoice list </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.docGenSalesInvoice(salesinvoice_webapi.Models.salesinvoiceModels.retrieve_salesinvoice_detail_for_docgenRequest)">
+            <summary>
+            docGenSalesInvoice
+            </summary>
+            <remarks>To generate sales invoice doc </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.generateSalesInvoice(salesinvoice_webapi.Models.salesinvoiceModels.generate_salesinvoice_documentRequest)">
+            <summary>
+            generateSalesInvoice
+            </summary>
+            <remarks>To generate salesinvoice </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.updateEvent(salesinvoice_webapi.Models.salesinvoiceModels.update_salesinvoice_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>Update salesinvoice status </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.setDetail(salesinvoice_webapi.Models.salesinvoiceModels.save_manage_salesinvoiceRequest)">
+            <summary>
+            setDetail
+            </summary>
+            <remarks>Save Sale Invoice </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.cancel(salesinvoice_webapi.Models.salesinvoiceModels.cancel_salesinvoiceRequest)">
+            <summary>
+            cancel
+            </summary>
+            <remarks>cancel sales invoice </remarks>
+        </member>
+        <member name="M:salesinvoice_webapi.Controllers.salesinvoice_saleinvoiceController.convertPItoFI(salesinvoice_webapi.Models.salesinvoiceModels.generate_salesinvoice_PI_to_FIRequest)">
+            <summary>
+            convertPItoFI
+            </summary>
+            <remarks>Convert Proforma Invoice to Final Invoice </remarks>
+        </member>
+    </members>
+</doc>

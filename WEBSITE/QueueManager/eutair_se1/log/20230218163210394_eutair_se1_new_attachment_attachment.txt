@@ -1,0 +1,3 @@
+{"url":"https://mark-in-uat.mservice.net:443/common/components/msvFileHandler//UploadFiles.aspx?client_id=mark&country_code=in&path=call_attachments/SE000237","key":"new_attachment_attachment","subkey":"SE000237","type":"attachments","attachments":[{"name":"mark-square-logo_20230218_163208.jpg","category":"I","type":"I","path":"/storage/emulated/0/Android/data/com.selfservit.mymark/files/mymark/mark/in/content_store/call_attachments/SE000237","extension":".jpg"}]}
+
+{"status":"success", "response":"SP001"}

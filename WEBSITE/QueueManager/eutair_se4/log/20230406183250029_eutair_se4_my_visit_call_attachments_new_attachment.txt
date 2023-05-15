@@ -1,0 +1,3 @@
+{"url":"https://mark-in-uat.mservice.net:443/common/components/msvFileHandler//UploadFiles.aspx?client_id=mark&country_code=in&path=call_attachments/VI000270","key":"my_visit_call_attachments_new_attachment","subkey":"VI000270","type":"attachments","attachments":[{"name":"IMG_20230406_183233_20230406_183244.jpg","category":"I","type":"I","path":"/storage/emulated/0/Android/data/com.selfservit.mymark/files/mymark/mark/in/content_store/call_attachments/VI000270","extension":".jpg","thumbnail":""}]}
+
+{"status":"success", "response":"SP001"}

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mservice_webapi</name>
+    </assembly>
+    <members>
+        <member name="T:mservice_webapi.SwaggerConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:mservice_webapi.SwaggerConfig.Register">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:mservice_webapi.SwaggerConfig.GetXmlCommentsPath">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mservice_webapi.Filters.CustomAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Called when an action is being authorized to determine whether access for this particular request is authorized.
+            </summary>
+            <param name="actionContext">The context.</param>
+            <returns>true if the control is authorized; otherwise, false.</returns>
+        </member>
+        <member name="T:mservice_webapi.Filters.SwaggerResponseContentTypeAttribute">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+        </member>
+        <member name="M:mservice_webapi.Filters.SwaggerResponseContentTypeAttribute.#ctor(System.String)">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+            <param name="responseType"></param>
+        </member>
+        <member name="P:mservice_webapi.Filters.SwaggerResponseContentTypeAttribute.ResponseType">
+            <summary>
+            Response Content Type
+            </summary>
+        </member>
+        <member name="P:mservice_webapi.Filters.SwaggerResponseContentTypeAttribute.Exclusive">
+            <summary>
+            Remove all other Response Content Types
+            </summary>
+        </member>
+        <member name="T:mservice_webapi.Filters.CustomResponseContentTypeOperationFilter">
+            <summary>
+            Class will be used to add value for 'produces' in swagger
+            This class will be referred from SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_ActivityController.GetMyActivity(mservice_webapi.Models.mserviceModels.retrieve_my_callsRequest)">
+            <summary>
+            GetMyActivity
+            </summary>
+            <remarks>Getting My calls </remarks>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_pwclaimController.getList(mservice_webapi.Models.mserviceModels.retrieve_manage_pwclaim_listRequest)">
+            <summary>
+            getList
+            </summary>
+            <remarks>Get List of Documents </remarks>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_pwclaimController.getDetails(mservice_webapi.Models.mserviceModels.retrieve_manage_pwclaim_detailsRequest)">
+            <summary>
+            getDetails
+            </summary>
+            <remarks>Get PWClaim details </remarks>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_pwclaimController.setDetails(mservice_webapi.Models.mserviceModels.save_manage_pwclaimRequest)">
+            <summary>
+            setDetails
+            </summary>
+            <remarks>Save Parts Warranty Claim </remarks>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_pwclaimController.generateDoc(mservice_webapi.Models.mserviceModels.generate_pwclaimRequest)">
+            <summary>
+            generateDoc
+            </summary>
+            <remarks>Generate PW Claim Document </remarks>
+        </member>
+        <member name="M:mservice_webapi.Controllers.mservice_pwclaimController.updateEvent(mservice_webapi.Models.mserviceModels.update_pwclaim_wfeventverb_status_changeRequest)">
+            <summary>
+            updateEvent
+            </summary>
+            <remarks>Update event verb </remarks>
+        </member>
+    </members>
+</doc>

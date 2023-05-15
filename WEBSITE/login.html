@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="/common/images/favicon.ico" />
+<link href="common/styles/style_2.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<script src="infra/kendoui/js/jquery.min.js" type="text/javascript"></script>
+ <!--In the header of your page, paste the following for Kendo UI Web styles-->
+ <link href="infra/kendoui/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+ <link href="infra/kendoui/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+
+ <!--Then paste the following for Kendo UI Web scripts-->
+ <script src="infra/kendoui/js/jquery.min.js" type="text/javascript"></script>
+ <script src="infra/kendoui/js/kendo.web.min.js" type="text/javascript"></script>
+ <link href="webui/styles/kendoui_application_theme.css" rel="stylesheet" type="text/css" />
+
+ <script type="text/javascript" src="s_iscripts/UmoldITServiceProxy.js"></script>
+ <script type="text/javascript" src="common/scripts/js/common_functions.js"></script>
+ <script type="text/javascript" src="common/scripts/js/framework_functions.js"></script>
+ <script type="text/javascript" src="s_iscripts/validate_client.js"></script> 
+ <script type="text/javascript" src="s_iscripts/authenticate_client.js"></script> 
+ <script type="text/javascript" src="s_iscripts/authenticate_user.js"></script>
+ <script type="text/javascript" src="s_iscripts/request_password.js"></script>
+
+<!--[if lte IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]--> <!-- FOR INTERNET EXPLORER 8 AND LOWER VERSIONS -->
+<script type="text/javascript">
+function validate_client()
+{
+	initSessionContext();
+	
+	login_profile.protocol = window.location.protocol;
+	login_profile.app_mode ="WEB_BROWSER";
+
+	login_profile.client_id = getQuerystring('client_id'); 
+	if (login_profile.client_id == "")		
+	{
+	
+	login_profile.client_id = "mark"; 
+	login_profile.domain_name = "mark-in-uat.mservice.net";
+	login_profile.portno = window.location.port;
+	login_profile.network_mode = "online";
+	
+	//	document.write("Client does not exist");
+	//return false;
+	}   
+	else
+	{
+	login_profile.domain_name =document.domain;
+	login_profile.portno =window.location.port;
+	login_profile.network_mode = "online";
+	}
+	client_id = login_profile.client_id;
+	
+	p_valid_client_ind = "false";
+	AppName = "";
+	
+	executeService_validate_client();
+	
+	if ( p_valid_client_ind == "false" || AppName == "")
+	{
+		document.write("You do not have subscription to the application. Pl. contact support@selfservit.com");
+		return false;
+	}
+	
+	country_list = executeService_authenticate_client();
+	
+	if(p_valid_client_ind != "true")
+	{
+		document.write("The URL you typed "+window.location.hostname+" does not exist");
+		document.write("				Spellcheck the URL again					 ");
+		document.write(" 			Take a look @ www.mservice.in					 ");
+		return false;
+	}
+	return true;
+}
+ 
+ $(document).ready(function() 
+ {
+	jQuery.cachedScript = function(url, options) {
+			// allow user to set any option except for dataType, cache, and url
+			options = $.extend(options || {}, {
+			dataType: "script",
+			cache: true,
+			async: false,
+			url: url
+		});
+
+		// Use $.ajax() since it is more flexible than $.getScript
+		// Return the jqXHR object so we can chain callbacks
+		return jQuery.ajax(options);
+		};
+ 
+	var isValidClient = false;
+	
+	cookie_companyid = "";
+    cookie_countrycode = "";
+    cookie_userid = "";
+	
+	isValidClient = validate_client();
+	
+	if (isValidClient == false)
+	{
+	  return false;
+	}
+	
+	
+	/* Load the login screen */
+	
+	$('#login').load('webui/html/login_'+AppName+'_'+login_profile.client_id+'.html', function() {
+	
+		$("#login :input").focusin(function(){
+			$(this).addClass("k-state-focused");  
+		});
+	
+		$("#login :input").focusout(function(){
+			$(this).removeClass("k-state-focused");
+		});
+		
+		if ( $("#countrycode").length)
+		{
+			$("#countrycode").kendoDropDownList({
+							dataTextField: "p_country_name",
+							dataValueField: "p_country_id"
+							});
+
+			input = $("#countrycode").data("kendoDropDownList");
+
+			input.dataSource.data(country_list);
+
+			if(input.list.length = 1)
+			{
+				input.select(0);
+				$('#username').focus();
+				country_code_val = country_list[0].p_country_id; /* Picks the first country code */
+		
+			}
+			else
+			{
+				$('#countrycode').focus();
+			}	
+		}
+		else
+			country_code_val = country_list[0].p_country_id; /* Picks the first country code */
+		
+		checkCookie();
+	
+		/* Call SetLoginTitle, Header, Footer Functions*/
+		
+		SetLoginTitle(AppName,login_profile.client_id,country_code_val);
+		SetLoginHeader(AppName,login_profile.client_id,country_code_val);
+		SetLoginFooter(AppName,login_profile.client_id,country_code_val);
+		
+		//On Enter Key Press
+		$('#password').keypress(function(event) {
+			if (event.keyCode == 13) 
+			{
+				$("#login_button").trigger('click');
+			}
+		});
+	
+		//validator = $("#login").kendoValidator().data("kendoValidator");	
+		$("#login_button").click(function(e) {
+			e.preventDefault();
+			if (document.getElementById('username').value != "" && document.getElementById('password').value != "")
+			{
+				$('#spinner').show();
+				if ($('#rememberme').is(':checked'))
+				{
+					setCookie(365);	
+				}
+				else
+				{
+					setCookie(-1);	
+				}
+			
+				var loginSuccess;
+				cookie_companyid = "";
+				cookie_countrycode = "";
+				cookie_userid = "";
+			
+				screen_id = "login";
+			
+				//initSessionContext();
+				//label_dictionary = loadXMLDoc('labeldictionary.xml');
+		
+				getUserAccessInfo();
+				//client_id = sessionStorage.getItem('client_id');
+				//	if (validator.validate()) 
+				//{
+				if ($('#countrycode').length)
+					country_code_val = document.getElementById('countrycode').value;
+		
+				username = document.getElementById('username').value;
+				password = document.getElementById('password').value;
+				
+				loginSuccess = executeService_authenticate_user();			
+				if (loginSuccess == 0)
+				{
+					$("#login_button").attr('disabled','disabled');
+				
+					
+					if(login_profile.software_product  =="MPTrak")
+					{
+						login_profile.project_type = "P";
+						sessionStorage.setItem('project_profile', JSON.stringify(project_profile));
+						sessionStorage.setItem('task_profile', JSON.stringify(task_profile));
+					
+					}
+					else if(login_profile.software_product =="MService")
+					{
+						sessionStorage.setItem('job_profile', JSON.stringify(job_profile));
+						sessionStorage.setItem('jobtask_profile', JSON.stringify(jobtask_profile));
+						login_profile.project_type =  "J";			 
+					}
+					setWebSocketport();
+					
+					sessionStorage.setItem('login_profile', JSON.stringify(login_profile));
+					sessionStorage.setItem('navigation_map', JSON.stringify(navigation_map));
+					sessionStorage.setItem('access_profile', JSON.stringify(access_profile));
+					
+					$.cachedScript("webui/scripts/js/fn_home.js")
+					.done(function(){
+										
+						window.location.href = "webui/html/home.html";
+						
+					}).fail(function(){
+							alert('E_LO_1001: Unable to load required files. Please contact your support desk.');
+							return false;
+					});
+				}
+				else
+				{
+					$('#spinner').hide();
+					$('#password').val("");
+					$('#password').focus();
+				}
+			}
+			else
+			{
+				alert("Please enter the credentials.");
+			}
+		});
+		
+		$("#forgot_password").click(function(e) {
+			e.preventDefault();
+			var u_name=document.getElementById("user_name");
+			var e_id=document.getElementById("email_ID");
+			if(country_code_val !="")
+			{
+				if(u_name.value =="" && e_id.value =="")
+				{
+					alert("Please Enter User Name And Email ID");
+					u_name.focus();
+				}
+				else
+				{
+					if(u_name.value =="")
+					{
+						alert("Please Enter User Name ");
+						u_name.focus();
+					}
+					else
+					{
+						if(e_id.value =="")
+						{
+							alert("Please Enter Email ID ");
+							e_id.focus();
+						}
+						else
+						{
+							var atpos=e_id.value.indexOf("@");
+							var dotpos=e_id.value.lastIndexOf(".");
+							if (atpos<1 || dotpos<atpos+2 || dotpos+2>=e_id.value.length)
+							{
+								alert("Not a valid e-mail address");
+								e_id.value ="";
+								e_id.focus();
+								return false;
+							}
+							else
+							{
+								user_id = document.getElementById('user_name').value;
+								country_id = country_code_val;
+								e_mail_id = document.getElementById('email_ID').value;
+								
+								var returnValue = executeService_request_password();
+								if (returnValue == "1")
+								{
+									e_id.value = "";
+									u_name.value = "";
+								}
+							}
+					
+						}
+					}
+				}
+			}
+			else
+			{
+				alert("Please select a country code");
+			}
+		});						
+	});
+});
+</script>
+</head>
+<body>
+<div id="login" > </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>security_webapi</name>
+    </assembly>
+    <members>
+        <member name="T:security_webapi.SwaggerConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:security_webapi.SwaggerConfig.Register">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:security_webapi.SwaggerConfig.GetXmlCommentsPath">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:security_webapi.Filters.CustomAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Called when an action is being authorized to determine whether access for this particular request is authorized.
+            </summary>
+            <param name="actionContext">The context.</param>
+            <returns>true if the control is authorized; otherwise, false.</returns>
+        </member>
+        <member name="T:security_webapi.Filters.SwaggerResponseContentTypeAttribute">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+        </member>
+        <member name="M:security_webapi.Filters.SwaggerResponseContentTypeAttribute.#ctor(System.String)">
+            <summary>
+            SwaggerResponseContentTypeAttribute
+            </summary>
+            <param name="responseType"></param>
+        </member>
+        <member name="P:security_webapi.Filters.SwaggerResponseContentTypeAttribute.ResponseType">
+            <summary>
+            Response Content Type
+            </summary>
+        </member>
+        <member name="P:security_webapi.Filters.SwaggerResponseContentTypeAttribute.Exclusive">
+            <summary>
+            Remove all other Response Content Types
+            </summary>
+        </member>
+        <member name="T:security_webapi.Filters.CustomResponseContentTypeOperationFilter">
+            <summary>
+            Class will be used to add value for 'produces' in swagger
+            This class will be referred from SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:security_webapi.Controllers.security_appsecurityController.validate_device(security_webapi.Models.securityModels.validate_deviceRequest)">
+            <summary>
+            validate_device
+            </summary>
+            <remarks>For Validating device </remarks>
+        </member>
+        <member name="M:security_webapi.Controllers.security_appsecurityController.validate_session(security_webapi.Models.securityModels.validate_sessionRequest)">
+            <summary>
+            validate_session
+            </summary>
+            <remarks>Validate a session </remarks>
+        </member>
+        <member name="M:security_webapi.Controllers.security_appsecurityController.authenticate_user(security_webapi.Models.securityModels.authenticate_userRequest)">
+            <summary>
+            authenticate_user
+            </summary>
+            <remarks>Authenticate user </remarks>
+        </member>
+    </members>
+</doc>

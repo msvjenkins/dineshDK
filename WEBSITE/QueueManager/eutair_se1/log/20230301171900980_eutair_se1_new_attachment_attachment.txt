@@ -1,0 +1,3 @@
+{"url":"https://mark-in-uat.mservice.net:443/common/components/msvFileHandler//UploadFiles.aspx?client_id=mark&country_code=in&path=call_attachments/SE000241","key":"new_attachment_attachment","subkey":"SE000241","type":"attachments","attachments":[{"name":"Screenshot_20230301-162256_MyMark Compressor_20230301_171854.jpg","category":"I","type":"I","path":"/storage/emulated/0/Android/data/com.selfservit.mymark/files/mymark/mark/in/content_store/call_attachments/SE000241","extension":".jpg"}]}
+
+{"status":"success", "response":"SP001"}

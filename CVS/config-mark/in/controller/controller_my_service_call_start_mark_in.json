@@ -1,0 +1,30 @@
+{
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyyHH') #",
+    "transType": "",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'MCALSTART' #",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "containR_type": "form",
+    "containR_subtype": "workflow",
+    "scrId": "my_service_call_MCALSTART",
+   "showUI": "",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "dSourceKey": "",
+    "workFlowEventsKey": "",
+    "companyFeatureAccessOrderKey": "",
+    "masterListDataSource": "",
+    "allow_new_transaction":"false",
+    "modify_last_transaction":"true",
+	"patternScreenId": "my_service_call",
+    "save": {
+        "online": "false",
+        "infoCode": "call_status_change_se",
+        "headerInput": "",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A",
+        "checkLocationSettings": "",
+        "checkTimeSettings": ""
+    }
+}

@@ -1,0 +1,15 @@
+{
+	"field": {
+		"client_id": "CLIENT ID",
+		"country_code": "COUNTRY CODE",
+		"username": "USERNAME",
+		"password": "PASSWORD",
+		"device_id": "Device ID :"
+	},
+	"screen": {
+		"title": "Register"
+	},
+	"button": {
+		"register": "Register"
+	}
+}

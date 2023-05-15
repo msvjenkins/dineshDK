@@ -1,0 +1,43 @@
+{
+    "field": {
+        "screen": {
+            "title": "New Attachment"
+        },
+        "form": {
+            "user_attachment": "Attachment",
+            "user_camera": "Camera",
+            "user_gallery": "Gallery",
+			"user_image":"Image"
+        }
+    },
+    "toastMessages": {
+        "success": "Attachment added successfully",
+        "error_location_not_exists": "Your Location not available",
+        "error_location_delete": "Unable to delete your location",
+        "error_location_exists": "Your Location alerady added",
+        "error_location_insert": "Unable to add your location",
+        "service_exception": "Service Exception",
+        "get_date_error": "Failed to get the date",
+        "load_controller_file_error": "Unable to load controller file",
+        "load_config_files_error": "Unable to load config files",
+        "delete_config_files_error": "Failed to delete config files",
+        "form_fields_mandatory_alert": "Please fill all the mandatory fields",
+        "save_draft_success": "Form saved successfully",
+        "save_draft_error": "Unable to save the form",
+        "form_submit_alert": "Do you want to submit?",
+        "form_submit_success": "Your attachment has been submitted successfully",
+        "form_submit_error": "Failed to send the form data",
+        "save_pdf_data_error": "Unable to send pdf data",
+        "save_pdf_html_data_error": "Unable to send pdf data",
+        "form_back_click_alert": "Do you want to go back?",
+        "form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+        "form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?",
+        "create_trans_key_error": "Failed to create transaction key file"
+    },
+    "confirmMessages": {
+        "form_submit_alert": "Do you want to submit?",
+        "TurnOnAutomaticDateTime": "Please turn on automatic date and time settings.",
+        "form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+        "form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?"
+    }
+}

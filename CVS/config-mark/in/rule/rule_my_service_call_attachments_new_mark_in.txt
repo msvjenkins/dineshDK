@@ -1,0 +1,20 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_attachments_new"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Hide] ON [#my_service_call_attachments_new_transaction_type, #my_service_call_attachments_new_transaction_ref_no];
+				APPLY [SetValue] ON [#my_service_call_attachments_new_transaction_type] VALUE ["CALL"];
+				APPLY [SetValue] ON [#my_service_call_attachments_new_transaction_ref_no] VALUE [$mService.containR.variable.my_service_call_attachments.selectedRecord.request_ref_no];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "datasource"] 
+	EVENT_BEGIN [NAME = "update"]
+		FIELD_BEGIN [NAME = "my_service_call_attachments_new"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_service_call_list] VALUE [FN_UPDATEDATASOURCE('addAttachment','')];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

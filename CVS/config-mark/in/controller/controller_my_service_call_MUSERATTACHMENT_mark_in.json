@@ -1,0 +1,24 @@
+{
+	"containR_type" : "listview",
+	"containR_subtype" : "master",
+	"scrId" : "manage_user_attachments",
+	"masterListDataSource" :"attachments",
+	"digitalReport": "false",
+	"saveDraft": "false",
+	"save": {
+		"checkLocationSettings":"true",
+		"checkTimeSettings":"true"
+    },
+	"delete": {
+		"online": "true",
+		"infoCode":"user_attachments",
+		"headerInput": "{\"transaction_type\":\"'call'\",\"transaction_ref_no\":\"$mService.containR.variable.my_service_call_MUSERATTACHMENT.selectedRecord.call_no\"\"file_id\":\"$mService.containR.variable.my_service_call_MUSERATTACHMENT.selectedRecord.location_code\"\"file_name\":\"$mService.containR.variable.my_service_call_MUSERATTACHMENT.selectedRecord.location_code\"}",
+		"infoRefNo1":"",
+		"infoRefNo2":"",
+		"timestamp":"00000000-0000-0000-0000-000000000000",
+		"mode":"D"
+	},
+    "cacheUsed": "ATTACHMENT_PATH_CACHE"
+}
+
+

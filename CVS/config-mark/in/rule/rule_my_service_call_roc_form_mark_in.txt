@@ -1,0 +1,47 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_roc_form"]
+			RULE_BEGIN [NAME = "Loadrule", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_service_call_roc_form_eng_sign, #my_service_call_roc_form_cust_sign, #my_service_call_roc_form_running_hours,#my_service_call_roc_form_udf_float_1,#my_service_call_roc_form_failure_category,#my_service_call_roc_form_primary_item_code,#my_service_call_roc_form_failure_date,#my_service_call_roc_form_failure_description,#my_service_call_roc_form_failure_reason,#my_service_call_roc_form_faction_tobe_taken];
+				APPLY [Disable] ON [#my_service_call_roc_form_call_no,#my_service_call_roc_form_job_type,#my_service_call_roc_form_date,#my_service_call_roc_form_model_no,#my_service_call_roc_form_asset_id,#my_service_call_roc_form_intallation_date,#my_service_call_roc_form_name_1,#my_service_call_roc_form_name_2,#my_service_call_roc_form_customer_name,#my_service_call_roc_form_dlr_code,#my_service_call_roc_form_dlr_address,#my_service_call_roc_form_dlr_name];
+				APPLY [SetValue] ON [#my_service_call_roc_form_dlr_code] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_roc_form_dlr_address] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.dealer_address];
+                APPLY [SetValue] ON [#my_service_call_roc_form_dlr_name] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_roc_form_cust_cntct_num] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.cust_contact_no];
+				APPLY [Hide] ON [#my_service_call_roc_form_serv_enginr];
+				APPLY [SetValue] ON [#my_service_call_roc_form_call_no] VALUE[$mService.containR.variable.my_service_call_roc_form.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_roc_form_job_type] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_roc_form_customer_name] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_roc_form_customer_address] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.cust_address];
+				APPLY [SetValue] ON [#my_service_call_roc_form_contact_person] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_roc_form_contact_email] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_roc_form_model_no] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.equipment_id];
+                APPLY [SetValue] ON [#my_service_call_roc_form_asset_id] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.asset_id];
+	            APPLY [SetValue] ON [#my_service_call_roc_form_intallation_date] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.installation_date];
+				APPLY [SetValue] ON [#my_service_call_roc_form_name_1] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.assigned_to_emp_name];
+                APPLY [SetValue] ON [#my_service_call_roc_form_name_2] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.customer_name];		
+				APPLY [SetValue] ON [#my_service_call_roc_form_serv_enginr] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_roc_form_problm_des] VALUE [$mService.containR.variable.my_service_call_roc_form.selectedRecord.problem_description];
+				APPLY [SetValue] ON [#my_service_call_roc_form_date] VALUE [NEWDATE];
+				APPLY [NumberPattern] ON [#my_service_call_roc_form_cust_cntct_num];
+				APPLY [SetValue] ON [#my_service_call_roc_form_question_6] VALUE ["1"];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_roc_form_part_1_savedetails"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				IF ((#my_service_call_roc_form_part_1_savedetails != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_roc_form_desc_1_savedetails] VALUE [#my_service_call_roc_form_part_1_savedetails.description_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_roc_form_desc_1_savedetails] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

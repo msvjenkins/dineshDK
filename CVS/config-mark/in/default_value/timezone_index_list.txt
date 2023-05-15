@@ -1,0 +1,38 @@
+[{
+        "timezoneId": "191",
+        "offsetHour": "7",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "190",
+        "offsetHour": "5",
+        "offsetMinute": "30"
+    }, {
+        "timezoneId": "196",
+        "offsetHour": "8",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "197",
+        "offsetHour": "7",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "198",
+        "offsetHour": "7",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "199",
+        "offsetHour": "8",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "200",
+        "offsetHour": "3",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "201",
+        "offsetHour": "6",
+        "offsetMinute": "00"
+    }, {
+        "timezoneId": "203",
+        "offsetHour": "6",
+        "offsetMinute": "30"
+    }
+]

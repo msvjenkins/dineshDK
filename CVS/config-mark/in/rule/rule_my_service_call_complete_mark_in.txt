@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_complete"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_complete_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_complete_time] VALUE [NEWDATE];
+				APPLY [DISABLE] ON [#my_service_call_complete_date];
+				APPLY [DISABLE] ON [#my_service_call_complete_time];
+				APPLY [SetValue] ON [#my_service_call_complete_eventverb_id] VALUE [$mService.containR.variable.my_service_call_complete.eventVerbID];
+				APPLY [SetValue] ON [#my_service_call_complete_from_wf_stage_no] VALUE [$mService.containR.variable.my_service_call_complete.selectedRecord.call_wf_stage];
+				APPLY [SetValue] ON [#my_service_call_complete_from_wf_status] VALUE [$mService.containR.variable.my_service_call_complete.selectedRecord.call_status];
+				APPLY [SetValue] ON [#my_service_call_complete_to_wf_stage_no] VALUE [$mService.containR.variable.my_service_call_complete.to_wf_stage];
+				APPLY [SetValue] ON [#my_service_call_complete_to_wf_status] VALUE [$mService.containR.variable.my_service_call_complete.to_wf_status];
+				APPLY [Hide] ON [#my_service_call_complete_eventverb_id, #my_service_call_complete_from_wf_stage_no, #my_service_call_complete_from_wf_status, #my_service_call_complete_to_wf_stage_no, #my_service_call_complete_to_wf_status];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

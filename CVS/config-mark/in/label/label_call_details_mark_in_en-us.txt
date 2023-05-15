@@ -1,0 +1,10 @@
+{
+	"field": {
+		"more_details": "More Details",
+		"dates": "Dates",
+		"contact_info": "Contact Info"
+	},
+	"screen": {
+		"title": "Call details"
+	}
+}

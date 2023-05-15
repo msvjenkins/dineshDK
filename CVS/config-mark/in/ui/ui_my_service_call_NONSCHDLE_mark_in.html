@@ -1,0 +1,69 @@
+<div id="my_service_call_NONSCHDLE" data-ms-view-layout="false"  data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="my_service_call_NONSCHDLE">	
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+			<label id="my_service_call_NONSCHDLE_title_lbl" data-ms-lbl="field" data-ms-lbl-src="my_service_call_NONSCHDLE" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+			<a data-align="right"><img src="../ux/image/client_brand_icon.png" style="height: 35px;"/></a>
+		</div>
+	</header>
+	<div data-role="content" id="my_service_call_NONSCHDLE_content" class="ms_form_content_page">
+		<div id="my_service_call_NONSCHDLE_main_page" data-ms-widget-type="msSubpage">
+			<div id="my_service_call_NONSCHDLE_firstpage" data-role="page" data-ms-containr-subpage-no="1" style="height:85vh;overflow:scroll;">
+				<div data-ms-layout-role="msTitle" class="ms_title_navbar">
+					<span>NON SCHEDULE MAINTENANCE REPORT</span>
+					<span style="margin-left: 4em;">1/1</span>
+				</div>
+				<input id ="my_service_call_NONSCHDLE_report_num" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="report_num" data-ms-widget-prop-maxlen="20" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_customer_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_name" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_service_contract" data-ms-widget-type="msFlipswitch" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="service_contract"  data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_machine_model" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="machine_model" data-ms-widget-prop-maxlen="30" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_problem_desc" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="problem_desc" data-ms-widget-prop-maxlen="500" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_reason_fault" data-ms-widget-type="msMultiselect" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="reason_fault" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-itemTemplate="text" data-ms-widget-prop-checked="checked" data-ms-widget-prop-datasrc='[{"code": "BREAK","description": "BREAK"}, {"code": "VOLTAGE/CURRENT","description": "VOLTAGE/CURRENT"}, {"code": "LACK OF MAINTENANCE","description": "LACK OF MAINTENANCE"}, {"code": "QUALITY","description": "QUALITY"}, {"code": "WATER PRESSURE / DIRT","description": "WATER PRESSURE / DIRT"}, {"code": "WRONG HANDLING","description": "WRONG HANDLING"}, {"code": "MATERIAL","description": "MATERIAL"}, {"code": "WORN COMPONENETS","description": "WORN COMPONENETS"}, {"code": "OTHER","description": "OTHER"}]' data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_kind_of_job" data-ms-widget-type="msDropdownlist" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="kind_of_job" data-ms-widget-prop-savefield="false" data-ms-widget-prop-checked="checked" data-ms-widget-prop-datasrc='[{"code": "Repair On The Customers Request","description": "Repair On The Customers Request"}, {"code": "Check / Adjustments / Repairs","description": "Check / Adjustments / Repairs"}, {"code": "Warranty Check/ Adjustment / Repair","description": "Warranty Check/ Adjustment / Repair"}]' data-ms-widget-prop-textField="description" data-ms-widget-prop-valuefield="code"/>	
+				<input id ="my_service_call_NONSCHDLE_method_of_payment" data-ms-widget-type="msDropdownlist" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="method_of_payment" data-ms-widget-prop-savefield="false" data-ms-widget-prop-checked="checked" data-ms-widget-prop-datasrc='[{"code": "Cash after receiving the invoice","description": "Cash after receiving the invoice"}, {"code": "Cash at the site","description": "Cash at the site"}]' data-ms-widget-prop-textField="description" data-ms-widget-prop-valuefield="code"/>	
+				<input id ="my_service_call_NONSCHDLE_amount_paid" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="amount_paid" data-ms-widget-prop-maxlen="15" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_duration" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="duration" data-ms-widget-prop-maxlen="3" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_description_of_work" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="description_of_work" data-ms-widget-prop-maxlen="1000" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_more_visit_required" data-ms-widget-type="msFlipswitch" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="more_visit_required" data-ms-widget-prop-savefield="false"/>
+				<div id="my_service_call_NONSCHDLE_part_recommen" data-ms-widget-type="msLoop" data-ms-widget-prop-maxlimit="2" data-ms-widget-prop-savefield="true" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_recommen"> 
+					<input id ="my_service_call_NONSCHDLE_recommed_part_num" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="my_service_call_NONSCHDLE_part_recommen" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="recommed_part_num" data-ms-widget-prop-maxlen="30" data-ms-widget-prop-savefield="false"/>
+					<input id ="my_service_call_NONSCHDLE_recommed_part_description" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="my_service_call_NONSCHDLE_part_recommen"  data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="recommed_part_description" data-ms-widget-prop-maxlen="100" data-ms-widget-prop-savefield="false"/>
+					<input id ="my_service_call_NONSCHDLE_recommend_part_qty" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="my_service_call_NONSCHDLE_part_recommen"  data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="recommend_part_qty" data-ms-widget-prop-maxlen="3" data-ms-widget-prop-savefield="false"/>
+				</div>
+				<input id ="my_service_call_NONSCHDLE_comments" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comments" data-ms-widget-prop-maxlen="30" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_customer_contact_person" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_contact_person" data-ms-widget-prop-maxlen="30" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_customer_contact_person_num" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_contact_person_num" data-ms-widget-prop-maxlen="15" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_customer_picture_attachment" data-ms-widget-type="msCamera" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_picture_attachment"  data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_customer_signature" data-ms-widget-type="msSignaturepad" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_signature" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_service_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="service_name" data-ms-widget-prop-maxlen="60" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_service_contact_num" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="service_contact_num" data-ms-widget-prop-maxlen="15" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_service_picture_attachment" data-ms-widget-type="msCamera" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="service_picture_attachment"  data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_service_signature" data-ms-widget-type="msSignaturepad" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="service_signature" data-ms-widget-prop-savefield="false"/>
+				<input id ="my_service_call_NONSCHDLE_report_submission_date" data-ms-widget-type="msDatebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="report_submission_date" data-ms-widget-prop-savefield="false"/>
+			</div>				
+		</div>
+	</div>
+	<div id="my_service_call_NONSCHDLE_preview_popup" class="ms_login_window" style="padding: .5em; display: none;">	
+		<div data-role="scroller" style="height: 100%" data-zoom="true">
+			<div id ="my_service_call_NONSCHDLE_content_preview" style="width: 900px; position: absolute; top: 0%;left: 0%;transform: translate(3%, 5%);"></div>
+		</div>
+	</div>
+	<div id="my_service_call_NONSCHDLE_footer" data-role = "footer" data-position = "fixed"  data-theme = "a" data-tap-toggle = "false" class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="preview" class="far fa-eye"></i>
+			</div>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="far fa-check"></i>
+			</div>
+		</center>
+	</div>
+</div>
+
+
+
+
+
+
+
+

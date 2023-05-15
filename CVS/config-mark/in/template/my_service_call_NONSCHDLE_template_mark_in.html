@@ -1,0 +1,225 @@
+<script type="text/x-kendo-tmpl" id="my_service_call_NONSCHDLE_template" data-ms-mswidget-for="my_service_call_NONSCHDLE" data-ms-mswidget-template-type="digital_report" >
+	<style>
+		table { page-break-inside:avoid; }
+		tr { page-break-inside:avoid; }	
+		table{ border-collapse: collapse; table-layout: fixed; width: 100%;	}
+		.value{	font-size:14px; padding-left:10px; }
+		.label{	text-align : left; font-size:14px; padding-left:10px; }
+	</style>
+	<mserviceheader>
+		<table style="width:100%; table-layout:fixed; border-collapse:collapse; padding-top:1em;">
+			<tr height="40px">
+				<td colspan="50">
+					<img style="width:20%;float:left" src="data:image/jpeg;base64,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"/>
+				</td>
+			</tr>
+		</table>
+	</mserviceheader>
+	<table class = "table">
+		<tr height="10px">
+			<td colspan="60" style="text-align :center;font-size:160%">
+				<b>Non-Scheduled Maintenance Report</b>
+			</td>
+			<td colspan="40">
+				<span style = "padding-left : 215px;display:inline-block;"><b>Report No</b>:</span>
+				<span style = "text-align:right">#: report_num#</span>
+			</td>
+		</tr>
+		<tr height="10px">
+			<td colspan="60"></td>
+			<td colspan="40">
+				<span style = "padding-left : 221px;display:inline-block;"><b>Date</b>:</span>
+				<span style = "text-align:right">#: report_submission_date#</span>
+			</td>
+		</tr>		
+	</table>
+	<table>
+		<tr height = "50px"> 	
+			<td colspan="100" style="text-align :left">
+				<table style="display: inline-block;">
+					<tr height="20px">
+						<td colspan="30" class="label"><b>Customer</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: customer_name#</span>	
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label"><b>Service Contract</b></td>
+						<td colspan = "70" class="label">
+							# if (service_contract === true) { # 
+								<span style="text-align :left"><p>YES</p></span>
+							# } else { # 
+								<span style="text-align :left"><p>NO</p></span>	 
+							# }#
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label"><b>Equipment To be Fixed</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: machine_model #</span>	
+						</td>
+					</tr>
+					<tr height="40px">
+						<td colspan="30" class="label"><b>Symptom</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: problem_desc #</span>	
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label"><b>Reason For Fault</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: reason_fault #</span>	
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label"><b>Kind Of Job</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: kind_of_job #</span>	
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="40" class="label"><b>Method Of Payment</b></td>
+						<td colspan="30" class="label"><b>Amount To be Paid(Excluding Spares Fitted))</b></td>
+						<td colspan="30" class="label"><b>Job Duration</b></td>
+					</tr>
+					<tr height="30px">
+						<td colspan = "40" class="label">
+							<span style="text-align :left">#: method_of_payment #</span>	
+						</td>
+						<td colspan = "30" class="label">
+							<span style="text-align :left">#: amount_paid #</span>	
+							<b>LE/DAY</b>
+						</td>
+						<td colspan = "30" class="label">
+							<span style="text-align :left">#: duration #</span>	
+							<b>Day(s)</b>
+						</td>
+					</tr>
+					<tr height="40px">
+						<td colspan="30" class="label"><b>Description Of work</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: description_of_work #</span>	
+						</td>
+					</tr>
+					<tr height="20px">
+						<td colspan="30" class="label"><b>More Visit Required</b></td>
+						<td colspan = "70" class="label">
+							# if (more_visit_required === true) { # 
+								<span style="text-align :left"><p>YES</p></span>
+							# } else { # 
+								<span style="text-align :left"><p>NO</p></span>	 
+							# }#	
+						</td>
+					</tr>
+					<tr height="20px">
+					<td colspan="100" class="label"  style="text-align :left;  background-color:lightgray;">
+						<center><b>Spare Fitted</b></center>
+					</td>
+				</tr>
+				<tr height="10px">
+					<td colspan="30" class="label"><b>Part Number</b></td>
+					<td colspan="30" class="label"><b>Description</b></td>
+					<td colspan="40" class="label"><b>Qty</b></td>
+				</tr>
+				# for (var i = 0; i < data.part_recommen.length; i++){#
+					<tr height="20px">
+						<td colspan="30" style="text-align :left;" class="value">
+							#: data.part_recommen[i].recommed_part_num  #
+						</td>
+						<td colspan="30" style="text-align :left;" class="value">
+							#: data.part_recommen[i].recommed_part_description  #
+						</td>
+						<td colspan="40" style="text-align :left;" class="value">
+							#: data.part_recommen[i].recommend_part_qty  #
+						</td>
+					</tr>
+					# } #
+					<tr height="30px">
+						<td colspan="30" class="label"><b>Comments</b></td>
+						<td colspan = "70" class="label">
+							<span style="text-align :left">#: comments #</span>	
+						</td>
+					</tr>
+				</table>
+				<table>
+					<tr height = "140px"> 
+						<td colspan="50" class="label">
+							<table style="display: inline-block;">
+								<tr height = "30px">
+									<td style="text-align :left;font-size:14px" colspan = "26">
+										<span style="text-align :left"><b>Service Engineer Name</b></span>
+									</td>
+									<td style="text-align :left;font-size:14px" colspan = "24">
+										<span style="text-align :left">#: service_name#</span>
+									</td>
+								</tr>
+								<tr height = "30px">
+									<td colspan = "25">
+										<img style="height:80px; width:70%;float:left" src="#: service_signature #"></img>
+									</td>
+									<td colspan="25" class="value" >
+										<table style="display: inline-block;">
+											<img style="width:30%;" src="#: service_picture_attachment#"/>
+										</table>
+									</td>
+								</tr>
+								<tr height = "40px">
+									<td colspan = "3">&\#128222;</td>
+									<td colspan = "3" style="font-size:14px">
+										#: service_contact_num#
+									</td>
+								</tr>	
+							</table>
+						</td>
+						<td colspan="50" class="label">
+							<table style="display: inline-block;">
+								<tr height = "30px">
+									<td style="text-align :left;font-size:14px" colspan = "26">
+										<span style="text-align :left"><b>Customer Name</b></span>
+									</td>
+									<td style="text-align :left;font-size:14px" colspan = "24">
+										<span style="text-align :left">#: customer_contact_person#</span>
+									</td>
+								</tr>
+								<tr height = "30px">
+									<td colspan = "25">
+										<img style="height:80px; width:70%;float:left" src="#: customer_signature #"></img>
+									</td>
+									<td colspan="25" class="value" >
+										<table style="display: inline-block;">
+											<img style="width:30%;" src="#: customer_picture_attachment#"/>
+										</table>
+									</td>
+								</tr>
+								<tr height = "40px">
+									<td colspan = "3">&\#128222;</td>
+									<td colspan = "3" style="font-size:14px">
+										#: customer_contact_person_num #
+									</td>
+									<td colspan = "18">
+										<span></span>
+									</td>
+								</tr>	
+							</table>
+						</td>
+					</tr>
+				</table>		
+			</td>
+		</tr>
+	</table>
+	<hr/>
+	<mservicefooter>
+		<table>		
+			<tr height = "10px">	
+				<td colspan = "100">
+					<span style = "font-size:14px;text-align:center;"> 
+						<center>Delaval Pvt. Limited<br/>
+						 A-3, Abhimanshri Society, Pashan Road, (Dr. Homi Bhabha Rd.), Pune - 411 008. India.
+						Tel : 020-67218200. Fax : (020) 2567 5916.						
+						</center>
+					</span>
+				</td>						
+			</tr>
+		</table>
+	</mservicefooter>
+</script>

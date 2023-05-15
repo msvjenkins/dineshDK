@@ -1,0 +1,22 @@
+{
+	"containR_type": "listview",
+	"containR_subtype": "master",
+	"scrId": "attachments",
+	"masterListDataSource": "attachments",
+	"digitalReport": "false",
+	"saveDraft": "false",
+	"patternScreenId": "my_service_call",
+	"save": {
+		"checkLocationSettings": "true",
+		"checkTimeSettings": "true"
+	},
+	"delete": {
+		"online": "true",
+		"infoCode": "user_attachments",
+		"headerInput": "{\"transaction_type\":\"'call'\",\"transaction_ref_no\":\"$mService.containR.variable.attachments.selectedRecord.transaction_ref_no\"\"file_id\":\"$mService.containR.variable.attachments.selectedRecord.attachment_file_id\"\"file_name\":\"$mService.containR.variable.attachments.selectedRecord.attachment_file_type\"}",
+		"infoRefNo1": "",
+		"infoRefNo2": "",
+		"timestamp": "00000000-0000-0000-0000-000000000000",
+		"mode": "D"
+	}
+}

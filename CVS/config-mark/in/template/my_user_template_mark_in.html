@@ -1,0 +1,27 @@
+<script type="text/x-kendo-tmpl" id="my_user_listView_template">
+	<div>
+		<div>
+			<div>
+				<span class="my_user_title">
+					<span> #: title #</span>
+					<span> #: first_name # </span>
+				</span>	
+			</div>	
+			<div>
+				<span class="my_user_contact_no">#: mobile_no # </span>
+				<span class="my_user_contact_email">#: email_id # </span>
+			</div>	
+			<div>
+				<p>#: functional_role_name # </b></p>
+			</div>				
+		</div>
+		<div class="ms_content">
+			<span class="ms_user_icon">
+				<i data-id="#: uid #" data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="delete" class="fas #: mService.icons.myUser.delete #"></i>
+			</span>
+			<span class="ms_user_icon">
+				<i data-id="#: uid #" data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="linkUserToAsset" class="fas #: mService.icons.myUser.my_user_asset #"></i>
+			</span>
+		</div>
+	</div>
+</script>

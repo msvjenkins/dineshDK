@@ -1,0 +1,36 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_MCALSTART"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_time] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_eventverb_id] VALUE [$mService.containR.variable.my_service_call_MCALSTART.eventVerbID];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_from_wf_stage_no] VALUE [$mService.containR.variable.my_service_call_MCALSTART.selectedRecord.call_wf_stage];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_from_wf_status] VALUE [$mService.containR.variable.my_service_call_MCALSTART.selectedRecord.call_status];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_to_wf_stage_no] VALUE [$mService.containR.variable.my_service_call_MCALSTART.to_wf_stage];
+				APPLY [SetValue] ON [#my_service_call_MCALSTART_to_wf_status] VALUE [$mService.containR.variable.my_service_call_MCALSTART.to_wf_status];
+				APPLY [Disable] ON [#my_service_call_MCALSTART_date,#my_service_call_MCALSTART_time];
+				APPLY [Hide] ON [#my_service_call_MCALSTART_eventverb_id,#my_service_call_MCALSTART_from_wf_stage_no,#my_service_call_MCALSTART_from_wf_status,#my_service_call_MCALSTART_to_wf_stage_no,#my_service_call_MCALSTART_to_wf_status];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "Save rule", ORDER = "1"]
+				IF (($mService.containR.variable.my_service_call_MCALSTART.selectedRecord.act_start_on_date EQ ""))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_MCALSTART.selectedRecord.act_start_on_date] VALUE [$mService.util.date.getDateTimeString($("#my_service_call_MCALSTART_date").getVal(), "yyyy-MM-dd")];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_MCALSTART.selectedRecord.act_start_on_hour] VALUE [$mService.util.date.getDateTimeString($("#my_service_call_MCALSTART_date").getVal(), "HH")];
+					APPLY [SetValue] ON [$mService.containR.variable.my_service_call_MCALSTART.selectedRecord.act_start_on_minute] VALUE [$mService.util.date.getDateTimeString($("#my_service_call_MCALSTART_date").getVal(), "mm")];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

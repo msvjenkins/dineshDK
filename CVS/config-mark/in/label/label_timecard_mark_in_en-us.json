@@ -1,0 +1,32 @@
+{
+    "field": {
+		"screen": {
+			"title": "Timecard"
+		}
+    },
+	"toastMessages": {
+		"success": "Your complaint is registered. The reference number is #: ref_no #",
+		"error_complaint_exists": "There is an active complaint with reference number #: ref_no #",
+		"error_call_insert": "Failed to register your complaint",
+		"error_parts_insert": "Failed to register your complaint",
+		"error_ancillary_insert": "Failed to register your complaint",
+		"service_exception": "Service Exception",
+		"get_date_error": "Failed to get the date",
+		"load_controller_file_error": "Unable to load controller file",
+		"load_config_files_error": "Unable to load config files",
+		"delete_config_files_error": "Failed to delete config files",
+		"form_fields_mandatory_alert": "Please fill all the mandatory fields",
+		"save_draft_success": "Form saved successfully",
+		"save_draft_error": "Unable to save the form",
+		"form_submit_alert": "Do you want to submit?",
+		"form_submit_internet_connection_error": "Internet connection is required to proceed further.",
+		"form_submit_success": "Your query has been sent successfully",
+		"form_submit_error": "Failed to send the form data",
+		"save_pdf_data_error": "Unable to send pdf data",
+		"save_pdf_html_data_error": "Unable to send pdf data",
+		"form_back_click_alert": "Do you want to go back?",
+		"form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+		"form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?",
+		"create_trans_key_error": "Failed to create transaction key file"
+	}
+}

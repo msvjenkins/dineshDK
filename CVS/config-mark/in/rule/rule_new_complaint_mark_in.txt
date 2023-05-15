@@ -1,0 +1,68 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "new_complaint"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#new_complaint_customer_contact_name, #new_complaint_customer_contact_number, #new_complaint_customer_contact_email, #new_complaint_problem_description];
+				APPLY [Hide] ON [#new_complaint_asset_id,#new_complaint_visitor_id];
+				APPLY [SetValue] ON [#new_complaint_visitor_id] VALUE [$mService.visitor.profile.login.visitor_id];
+				APPLY [SetValue] ON [#new_complaint_asset_id] VALUE [$mService.containR.variable.new_complaint.asset_id];
+				APPLY [SetValue] ON [#new_complaint_customer_contact_name] VALUE [$mService.app.getFirstName()];
+				APPLY [SetValue] ON [#new_complaint_customer_contact_number] VALUE [$mService.app.getMobileNo()];
+				APPLY [SetValue] ON [#new_complaint_customer_contact_email] VALUE [$mService.app.getEmailId()];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF ($mService.containR.variable.new_complaint.parent_page === "my_request")
+				BEGIN
+					APPLY [Hide] ON [#new_complaint_machine_info,#new_complaint_asset_id];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#new_complaint_equipment_id];
+					APPLY [SetValue] ON [#new_complaint_machine_name] VALUE [$mService.containR.variable.new_complaint.asset_id];
+					APPLY [SetValue] ON [#new_complaint_machine_number] VALUE [$mService.containR.variable.new_complaint.equipment_id];
+					APPLY [SetValue] ON [#new_complaint_machine_state] VALUE [$mService.containR.variable.new_complaint.state_desc];
+					APPLY [SetValue] ON [#new_complaint_machine_dist] VALUE [$mService.containR.variable.new_complaint.country_desc];
+					APPLY [SetValue] ON [#new_complaint_machine_description] VALUE [$mService.containR.variable.new_complaint.equipment_name];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 3", ORDER = "3"]
+				IF (#new_complaint_category === "SE")
+				BEGIN
+					APPLY [Hide] ON [#new_complaint_part_details]; 
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"] 
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "new_complaint_category"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF (#new_complaint_category === "SE")
+				BEGIN
+					APPLY [Hide] ON [#new_complaint_part_details];
+					APPLY [Optional] ON [#new_complaint_description];
+					APPLY [Show] ON [#new_complaint_problem_description,#new_complaint_asset_location,#new_complaint_requested_date];
+					APPLY [Mandatory] ON [#new_complaint_problem_description];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF (#new_complaint_category === "PE")
+				BEGIN
+					APPLY [Show] ON [#new_complaint_part_details];
+					APPLY [Mandatory] ON [#new_complaint_description];
+					APPLY [Hide] ON [#new_complaint_problem_description,#new_complaint_asset_location,#new_complaint_requested_date];
+					APPLY [Optional] ON [#new_complaint_problem_description];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "new_complaint_part_details"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF (#new_complaint_category === "PE")
+				BEGIN
+					APPLY [Mandatory] ON [#new_complaint_description];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

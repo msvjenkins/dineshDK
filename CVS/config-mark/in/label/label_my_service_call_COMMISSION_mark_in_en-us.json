@@ -1,0 +1,80 @@
+{
+	"confirmMessages": {
+		"form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?",
+		"form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+		"form_submit_alert": "Do you want to submit?",
+		"TurnOnAutomaticDateTime": "Please turn on automatic date and time settings."
+	},
+	"field": {
+		"screen": {
+            "title": "Commission Report"
+        },
+		"form": {
+			"accessories_supplied": "Accessories supplied along with compressor installed and connected (Air Receiver, Pre-filters (G / V), Air dryer, Post filter (C), completed in proper sequence).",
+			"air_piping": "Air Piping completed from compressor until usage points completed & cleaning, flushing & leak test done.",
+			"check_compressor": "Checked Compressor, Dryer & accessories no physical damage on receipt.",
+			"checked_electrical": "Checked Electrical earthing been made to compressor body & Electrical panel.",
+			"compressor_room": "Compressor room has cross ventilation with adequate doors, windows & exhaust fans with adequate lighting –Room temperature not more than 40℃.",
+			"contact_email": "Contact Email Id",
+			"contact_number": "Contact Number",
+			"contact_number_1": "Contact Number",
+			"contact_person": "Contact Person",
+			"cust_sign": "Customer’s Signature & Seal of the firm",
+			"customer_address": "Customer Address",
+			"customer_id": "Customer Id",
+			"damage_noticed": "Damages if, any noticed needs to be report immediately and take the Signature of driver’s in the delivery receipt as taken.",
+			"date_1": "Date of Commissioned",
+			"dlr_address": "Dealer Address",
+			"dlr_code": "Dealer Code",
+			"dlr_name": "Dealer Name",
+			"drain_lines": "Necessary drain lines & piped out of the compressor room & completed.",
+			"electrical_isolation": "Electrical Isolation switch with proper MCB has been installed (with LOTO option near to compressor for safe working during maintenance).",
+			"equipment_installed": "The Equipments has installed & is having 1.5 meters space all around. (for proper maintenance as well as for safe escape route in case of emergency)",
+			"hotair_compressor": "Provided ducting for hot air coming out of the compressor. (Hot air is to be sent out of the air compressor room – to have proper ambient temp - the static pressure not to be more than 6 mmH2O)",
+			"initial_startup": "Recommended customer to procure the initial start-up service kit for replace after 500 Hours running",
+			"installed_isolation": "Installed an isolation valve immediately after the compressor along with a drip leg & a manual vent valve for proper de pressurisation of system before taking for maintenance as a safety practice.",
+			"instruction_parts": "Ensured that, Instruction & Parts manuals has received",
+			"loaded_hrs": "Loaded Hours",
+			"mark_products": "MARK products must be install in indoor only.",
+			"model_no": "Model No",
+			"motor_serialno": "Motor Serial no",
+			"piping_layout": "The piping Layout, Electrical power supply & cable size, MCB rating and Equipment installation & positioning procedures discussed with customer.",
+			"raised_platform": "Provided levelled & raised platform of about 8 - 10 inches height from floor level.",
+			"read_understood": "Read & understood Instruction & parts book. No clarifications on scope of supply, terminations etc required",
+			"remarks": "Remarks",
+			"report_date": "Report Date",
+			"report_no": "Report No",
+			"rubber_mat": "Provided a rubber mat of about ½” to 1” thick underneath the compressor (which will provide a flat surface to take care of levelling, & take care of vibrations issues if any).",
+			"running_hrs": "Running Hours",
+			"sengineer_name": "Service Engineer’s Name",
+			"sengineer_sign": "Service Engineer’s Signature",
+			"serial_no": "Serial No",
+			"utilities_connected": "All the utilities have been connected (Electrical power supply, Air piping)"
+		},
+		"screen": {
+			"title": "COMMISSION"
+		}
+	},
+	"placeholder": {},
+	"toastMessages": {
+		"create_trans_key_error": "Failed to create transaction key file",
+		"delete_config_files_error": "Failed to delete config files",
+		"form_back_click_alert": "Do you want to go back?",
+		"form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?",
+		"form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+		"form_fields_mandatory_alert": "Please fill all the mandatory fields",
+		"form_submit_error": "Failed to send the form data",
+		"form_submit_internet_connection_error": "Internet connection is required to proceed further.",
+		"form_submit_success": "Form Submitted  successfully",
+		"get_date_error": "Failed to get the date",
+		"load_config_files_error": "Unable to load config files",
+		"load_controller_file_error": "Unable to load controller file",
+		"save_draft_error": "Unable to save the form",
+		"save_draft_success": "Form saved successfully",
+		"save_pdf_data_error": "Unable to send pdf data",
+		"save_pdf_html_data_error": "Unable to send pdf data",
+		"service_exception": "Service Exception",
+		"success": "Report submitted sucessfully"
+	},
+	"wFlowEvents": {}
+}

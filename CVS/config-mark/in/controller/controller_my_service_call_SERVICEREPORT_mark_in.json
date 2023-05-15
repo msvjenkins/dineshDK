@@ -1,0 +1,26 @@
+{
+	"containR_type": "form",
+	"containR_subtype": "workflow",
+	"digitalReport": "true",
+	"scrId": "my_service_call_servicereport",
+	"formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'service_report' #",
+	"transNo": "#: mService.containR.variable.my_service_call_servicereport.selectedRecord.request_ref_no #",
+	"transType": "",
+	"attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+	"saveDraft": "true",
+	"save": {
+		"online": "false",
+		"infoCode": "servicereport",
+		"headerInput": "",
+		"infoRefNo1": "",
+		"infoRefNo2": "",
+		"timestamp": "",
+		"mode": "",
+		"checkLocationSettings": "",
+		"checkTimeSettings": ""
+	},
+	"show_ui": "",
+	"allow_new_transaction": "true",
+	"modify_last_transaction": "true",
+	"patternScreenId": "my_service_call"
+}

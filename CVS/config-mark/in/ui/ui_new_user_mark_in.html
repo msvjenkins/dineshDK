@@ -1,0 +1,38 @@
+<div id="new_user" data-ms-view-layout="false"  data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="new_user">	
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+			<label id="new_user_title_lbl" data-ms-lbl="field" data-ms-lbl-src="new_user" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+			<a data-align="right"><img src="../ux/image/client_brand_icon.png" style="height: 35px;"/></a>
+		</div>
+	</header>
+	<div data-role="content" id="new_user_content" class="ms_form_content_page">
+		<div id="new_user_main_page" data-ms-widget-type="msSubpage">
+			<div id="new_user_firstpage" data-role="page" data-subpage-no="1" style="height:80vh;overflow:scroll;">
+				<input id ="new_user_title" data-ms-widget-type="msRadiogroup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="title" data-ms-widget-prop-savefield="true" data-ms-widget-prop-checked="checked" data-ms-widget-prop-datasrc='[{"code": "Mr","description": "Mr"}, {"code": "Mrs","description": "Mrs"}, {"code": "Miss","description": "Miss"}]' data-ms-widget-prop-textField="description" data-ms-widget-prop-valuefield="code"/>
+				<input id ="new_user_firstname" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="firstname" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_user_middlename" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="middlename" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_user_lastname" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="lastname" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id="new_user_mobile_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="mobile_no" data-ms-widget-prop-maxlen="10" data-ms-widget-prop-savefield="true"/>
+				<input id="new_user_email_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="email_id" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id="new_user_designation" data-ms-widget-type="msCombobox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="designation" data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='$mService.dSource.cache.DESIGNATION_LIST_CACHE' data-ms-widget-prop-savefield="true"/>
+				<input id="new_user_working_location" data-ms-widget-type="msCombobox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="working_location"  data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='$mService.dSource.cache.LOCATION_LIST_CACHE' data-ms-widget-prop-savefield="true"/>
+			</div>		
+		</div>
+	</div>
+	<div id="new_user_footer" data-role = "footer" data-position = "fixed"  data-theme = "a" data-tap-toggle = "false" class="ms_footer">
+		<center>
+			<span class="ms_form_action_icon">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="fas fa-check-circle"></i>
+			</span>	
+		</center>
+	</div>
+</div>
+
+
+
+
+
+
+
+

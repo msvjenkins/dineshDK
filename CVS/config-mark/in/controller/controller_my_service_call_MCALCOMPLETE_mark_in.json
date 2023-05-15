@@ -1,0 +1,19 @@
+{
+    "transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyyHH') #",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'MCALCOMPLETE' #",
+    "formPath": "call_attachments",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "containR_type": "form",
+    "containR_subtype": "workflow",
+    "allow_new_transaction":"true",
+    "modify_last_transaction":"true",
+    "save": {
+        "online":"#: 'false' #",
+        "infoCode": "#: 'call_status_change_se' #",
+        "infoRefNo1": "#: '' #",
+		"infoRefNo2": "#: '' #",
+		"timestamp": "#: '00000000-0000-0000-0000-000000000000' #",
+		"mode": "#: 'A'  #"
+    }
+}

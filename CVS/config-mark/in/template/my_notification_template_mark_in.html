@@ -1,0 +1,44 @@
+<script type="text/x-kendo-tmpl" id="my_notification_list_view_template">
+	<div>
+		<div data-id="#: uid #" data-ms-widget-type="mButton"  data-ms-button-group="misc" data-ms-button-role="openNotification" data-role="button" style="width: 100%;">
+			<div>
+				#
+				var todayDate = new Date();
+				var today = todayDate.getUTCDate() + "-" + (todayDate.getUTCMonth() + 1) + "-" + todayDate.getUTCFullYear();
+				var hours = todayDate.getHours();
+				var minutes = todayDate.getMinutes();
+				var ampm = hours >= 12 ? 'pm' : 'am';
+				hours = hours % 12 ? hours % 12 : 12;
+				minutes = minutes < 10 ? '0'+minutes : minutes;
+				var strTime = hours + ':' + minutes + ' ' + ampm;
+				var yesterdayDate = new Date();
+				var yesterday = (yesterdayDate.getUTCDate() - 1) + "-" + (yesterdayDate.getUTCMonth() + 1) + "-" + yesterdayDate.getUTCFullYear();
+				var pluginDateTime = new Date(additionalData.msgBody.dateTime);
+				var strDate = pluginDateTime.getUTCDate() + "-" + (pluginDateTime.getUTCMonth() + 1) + "-" + pluginDateTime.getUTCFullYear();
+				#
+				# if (today === strDate) {#
+					<span class="ms_notify_date">Today #: strTime#</span>
+				#} else if (yesterday === strDate) {#
+					<span class="ms_notify_date">Yesterday #: strTime#</span>
+				#} else {#
+					<span class="ms_notify_date">#: strDate# #: strTime#</span>
+				#} #
+			</div>
+			<div>
+				<span class="ms_notify_content">#: additionalData.msgBody.content #</span>
+				<span style="width: 10%;">
+					# if(additionalData.msgBody.readIndication === "unread"){#
+						<span class="ms_notify_unread" style="float: right;"></span>
+					#}else {#
+						<span></span>
+					#} #
+				</span>
+			</div>
+		</div>
+		<span class="ms_user_icon">
+			<i data-id="#: uid #" data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="deleteNotification" data-ms-listview-param='["#: uid #"]' class="fas #: mService.icons.myNotification.delete #"></i>
+		</span>
+	</div>
+</script>
+
+

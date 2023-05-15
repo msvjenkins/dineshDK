@@ -1,0 +1,60 @@
+{
+	"pattern_name": "workflow",
+	"list": {
+		"pattern": "true",
+		"containR_type": "listview",
+		"containR_subtype": "workflow",
+		"scrId": "my_visit_call",
+		"transaction_type": "CALL",
+		"request_category": "VI",
+		"request_type": "ALL",
+		"digitalReport": "false",
+		"saveDraft": "false",
+		"dSource": {
+			"my_visit_call_list": {
+				"type": "list",
+				"inputParam": {
+					"code": "'my_activities'",
+					"inputXml": "{\"transaction_type_filter\":\"'CALL'\",\"request_ref_no_filter\":\"'ALL'\",\"request_category_filter\":\"'VI'\",\"request_type_filter\":\"'ALL'\",\"request_status_filter\":\"'ALL'\"}"
+				}
+			}
+		},
+		"presentR": {
+			"list_type": "listview",
+			"workflow_actions_type": "inlist"
+		},
+		"filterOptions": "request_status_desc"
+	},
+	"details": {
+		"pattern": "true",
+		"transNo": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyyHH') #",
+		"formName": "",
+		"formPath": "call_attachments",
+		"digitalReport": "false",
+		"saveDraft": "false",
+		"containR_type": "form",
+		"containR_subtype": "content"
+	},
+	"attachments": {
+		"pattern": "true",
+		"containR_type": "listview",
+		"containR_subtype": "master",
+		"scrId": "my_visit_call_attachments",
+		"masterListDataSource": "attachments",
+		"digitalReport": "false",
+		"saveDraft": "false",
+		"save": {
+			"checkLocationSettings": "true",
+			"checkTimeSettings": "true"
+		},
+		"delete": {
+			"online": "true",
+			"infoCode": "user_attachments",
+			"headerInput": "{\"transaction_type\":\"'CALL'\",\"transaction_ref_no\":\"$mService.containR.variable.my_visit_call_attachments.selectedRecord.request_ref_no\"\"file_id\":\"$mService.containR.variable.my_visit_call_attachments.selectedRecord.attachment_file_id\"\"file_name\":\"$mService.containR.variable.my_visit_call_attachments.selectedRecord.attachment_file_type\"}",
+			"infoRefNo1": "",
+			"infoRefNo2": "",
+			"timestamp": "00000000-0000-0000-0000-000000000000",
+			"mode": "D"
+		}
+	}
+}

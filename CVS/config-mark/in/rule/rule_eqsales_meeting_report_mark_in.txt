@@ -1,0 +1,87 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "eqsales_meeting_report"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				APPLY [NumberPattern] ON [#eqsales_meeting_report_pincode, #eqsales_meeting_report_engineer_contact_no];
+				APPLY [SetValue] ON [#eqsales_meeting_report_date_1] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#eqsales_meeting_report_engineer_name] VALUE [$mService.app.getFirstName()];
+				APPLY [SetValue] ON [#eqsales_meeting_report_dealer_id] VALUE [];
+				APPLY [SetValue] ON [#eqsales_meeting_report_engineer_contact_no] VALUE [$mService.app.getMobileNo()];
+				APPLY [Mandatory] ON [#eqsales_meeting_report_pincode, #eqsales_meeting_report_contact_details,#eqsales_meeting_report_address_line_1,#eqsales_meeting_report_meeting_comments,#eqsales_meeting_report_prospect_name];
+				APPLY [Show] ON [#eqsales_meeting_report_exisiting_machine_deatails_equipment_category,#eqsales_meeting_report_exisiting_machine_deatails_oem,#eqsales_meeting_report_exisiting_machine_deatails_model,#eqsales_meeting_report_exisiting_machine_deatails_qty,#eqsales_meeting_report_exisiting_machine_deatails_new_requirement,#eqsales_meeting_report_new_machine_requirment_available_equipment_category_1,#eqsales_meeting_report_new_machine_requirment_available_equipment_model,#eqsales_meeting_report_new_machine_requirment_available_qty_1,#eqsales_meeting_report_new_machine_requirment_available_additional_details];
+				APPLY [Hide] ON [#eqsales_meeting_report_exisiting_machine_deatails_equipment_category,#eqsales_meeting_report_exisiting_machine_deatails_oem,#eqsales_meeting_report_exisiting_machine_deatails_model,#eqsales_meeting_report_engineer_name,#eqsales_meeting_report_engineer_contact_no,#eqsales_meeting_report_exisiting_machine_deatails_qty,#eqsales_meeting_report_exisiting_machine_deatails_new_requirement,#eqsales_meeting_report_new_machine_requirment_available_qty_1,#eqsales_meeting_report_new_machine_requirment_available_equipment_model,#eqsales_meeting_report_new_machine_requirment_available_qty_1,#eqsales_meeting_report_enquiry_source,#eqsales_meeting_report_source_money,#eqsales_meeting_report_expected_deal_closing_date,#eqsales_meeting_report_next_followup_date,#eqsales_meeting_report_enquiry_sub_source,#eqsales_meeting_report_dealer_id, #eqsales_meeting_report_customer_name,#eqsales_meeting_report_customer_name_new];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "eqsales_meeting_report_requirement_details"]
+			RULE_BEGIN [NAME = "Load rule 3", ORDER = "1"]
+				APPLY [Show] ON [#eqsales_meeting_report_enquiry_source,#eqsales_meeting_report_enquiry_sub_source,#eqsales_meeting_report_expected_deal_closing_date,#eqsales_meeting_report_next_followup_date,#eqsales_meeting_report_source_money];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "eqsales_meeting_report_contact_details"]
+			RULE_BEGIN [NAME = "Load rule 3", ORDER = "1"]
+				APPLY [Mandatory] ON [#eqsales_meeting_report_contact_person_name,#eqsales_meeting_report_contact_no,#eqsales_meeting_report_designation];
+			RULE_END
+		FIELD_END
+	EVENT_END
+	EVENT_BEGIN [NAME = "unload"]
+		FIELD_BEGIN [NAME = "eqsales_meeting_report_requirement_details"]
+			RULE_BEGIN [NAME = "Load rule 4", ORDER = "1"]
+				IF (($mService.widgets.getVal.msLoop("eqsales_meeting_report_requirement_details").length == "0"))
+				BEGIN
+					APPLY [Hide] ON [#eqsales_meeting_report_enquiry_source,#eqsales_meeting_report_enquiry_sub_source,#eqsales_meeting_report_expected_deal_closing_date,#eqsales_meeting_report_next_followup_date,#eqsales_meeting_report_source_money];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "eqsales_meeting_report_equipment_category"]
+			RULE_BEGIN [NAME = "Field rule", ORDER = "1"]
+				IF (((#eqsales_meeting_report_equipment_category != "")))
+				BEGIN
+					APPLY [Show] ON [#eqsales_meeting_report_enquiry_source,#eqsales_meeting_report_enquiry_sub_source,#eqsales_meeting_report_expected_deal_closing_date,#eqsales_meeting_report_next_followup_date,#eqsales_meeting_report_source_money];
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#eqsales_meeting_report_enquiry_source,#eqsales_meeting_report_enquiry_sub_source,#eqsales_meeting_report_expected_deal_closing_date,#eqsales_meeting_report_next_followup_date,#eqsales_meeting_report_source_money];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Field rule2", ORDER = "1"]
+				IF (((#eqsales_meeting_report_equipment_category != "")))
+				BEGIN
+					APPLY [Mandatory] ON [#eqsales_meeting_report_qty_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#eqsales_meeting_report_qty_1];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "eqsales_meeting_report_prospect_name"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF(#eqsales_meeting_report_prospect_name != "")
+				BEGIN
+					APPLY [SetValue] ON [#eqsales_meeting_report_customer_id] VALUE [#eqsales_meeting_report_prospect_name.code];
+					APPLY [SetValue] ON [#eqsales_meeting_report_customer_name] VALUE [#eqsales_meeting_report_prospect_name.customer_name];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#eqsales_meeting_report_customer_id] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "NEW PROSPECT ", ORDER = "2"]
+				IF (#eqsales_meeting_report_prospect_name == "NEW PROSPECT")
+				BEGIN
+					APPLY [Show] ON [#eqsales_meeting_report_customer_name_new,#eqsales_meeting_report_pincode];
+					APPLY [Mandatory] ON [#eqsales_meeting_report_customer_name_new,#eqsales_meeting_report_address_line_1,#eqsales_meeting_report_city,#eqsales_meeting_report_state,#eqsales_meeting_report_pincode];
+				END
+				ELSE
+				BEGIN
+					APPLY [Optional] ON [#eqsales_meeting_report_customer_name_new,#eqsales_meeting_report_address_line_1,#eqsales_meeting_report_city,#eqsales_meeting_report_state,#eqsales_meeting_report_pincode];
+					APPLY [Hide] ON [#eqsales_meeting_report_customer_name_new,#eqsales_meeting_report_pincode];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

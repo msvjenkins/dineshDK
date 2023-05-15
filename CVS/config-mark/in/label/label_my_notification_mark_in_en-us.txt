@@ -1,0 +1,6 @@
+{
+	"field": {},
+	"screen": {
+		"title": "My Notifications"
+	}
+}

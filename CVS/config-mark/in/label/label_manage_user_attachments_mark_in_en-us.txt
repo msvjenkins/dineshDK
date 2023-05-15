@@ -1,0 +1,16 @@
+{
+	"field": {
+		"closure_report_indicator": "Closure Report",
+		"attachments":"Gallery",
+		"camera_attachment":"Camera",
+		"attachments_list":"Attachments"
+	},
+	"screen": {
+		"title": "Attachments"
+	},
+	"button" : {
+		"camera":"Take Picture",
+		"gallery":"Select Files",
+		"submit":"Ok"
+	}
+}

@@ -1,0 +1,36 @@
+<div id="machine_life" data-ms-view-layout="true" data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="machine_life">	
+	<div data-role="content" class="ms_form_content_page">
+		<div id="machine_life_content">
+			<div id="machine_life_main_page">
+				<div id="machine_life_firstpage" data-role="page" data-subpage-no="1">
+						
+						<div id="machine_life_content" data-role="content">
+							<div class="ms_document_searchwidget">
+									
+								<input id ="machine_life_asset_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lbl="placeholder" data-ms-widget-prop-lblgrpid="" data-ms-widget-prop-lblid="asset_id" class="ms_Searchpopup_Template_form_input search"/>
+										
+								<button id="machine_life_get_documents" data-ms-widget-type = "msButton" class="ms_Searchpopup_Template_form_btn"><i class="fa fa-search"></i></button>
+								
+							</div>
+							
+							<div id="machine_life_timeline_header" data-ms-widget-type="msDisplaybox" style="display:none;"></div>
+							
+							<input id="machine_life_timeline" data-ms-widget-type="msTimeline" data-ms-widget-prop-eventtemplate="machine_life_detail_template" data-ms-widget-prop-dateformat="dd.MMM.yyyy" data-ms-widget-prop-orientation="vertical"  data-ms-widget-prop-datasrc="$mService.containR.dSource.machine_life.machine_life_detail" data-ms-widget-prop-dsrctype="detail" data-ms-widget-prop-lblgrpid="" data-ms-widget-prop-lblid="machine_life" />
+							<div id="machine_life_no_data" data-ms-widget-type="msDisplaybox" class="ms_machine_life_nodata"><i class="fab fa-searchengin"></i></div>
+							
+							<input id="machine_life_list_timeline" data-ms-widget-type="msTimeline" data-ms-widget-prop-eventtemplate="machine_life_list_template" data-ms-widget-prop-dateformat="dd.MMM.yyyy" data-ms-widget-prop-orientation="vertical"  data-ms-widget-prop-datasrc="$mService.containR.dSource.machine_life.machine_life_list" data-ms-widget-prop-dsrctype="list" data-ms-widget-prop-lblgrpid="" data-ms-widget-prop-lblid="machine_life" />
+						</div>
+						
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+

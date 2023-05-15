@@ -1,0 +1,16 @@
+{
+    "containR_type": "form",
+    "containR_subtype": "form",
+    "scrId": "machhine_life",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "dSource": {
+        "machine_life_detail": {
+            "type": "detail",
+            "inputParam": {
+                "code": "'machine_life'",
+                "refNo1": "#machine_life_asset_id"
+            }
+        }
+    }
+}

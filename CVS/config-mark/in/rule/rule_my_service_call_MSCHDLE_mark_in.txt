@@ -1,0 +1,20 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_MSCHDLE"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [OtherfieldPattern] ON [#my_service_call_MSCHDLE_report_num];
+				APPLY [NumberPattern] ON [#my_service_call_MSCHDLE_service_contact_num, #my_service_call_MSCHDLE_customer_contact_person_num ];
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_customer_name] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_report_num] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.call_no];			
+				APPLY [Hide] ON [#my_service_call_MSCHDLE_report_num, #my_service_call_MSCHDLE_report_submission_date];
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_customer_contact_person] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.cust_contact_name]; 
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_service_name] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.assigned_to_emp_name]; 
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_customer_contact_number] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_report_submission_date] VALUE [NEWDATE];
+				APPLY [Disable] ON [#my_service_call_MSCHDLE_customer_contact_number];
+				APPLY [Mandatory] ON [#my_service_call_MSCHDLE_customer_signature, #my_service_call_MSCHDLE_service_signature];
+				APPLY [SetValue] ON [#my_service_call_MSCHDLE_customer_address] VALUE [$mService.containR.variable.my_service_call_MSCHDLE.selectedRecord.customer_location_code];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

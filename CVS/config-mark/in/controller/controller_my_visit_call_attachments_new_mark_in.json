@@ -1,0 +1,18 @@
+ {
+    "transNo": "#: mService.containR.variable.my_visit_call_attachments.selectedRecord.request_ref_no #",
+    "formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'NEWATTACHMENT' #",
+    "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+    "digitalReport": "false",
+    "saveDraft": "false",
+    "containR_type": "form",
+    "containR_subtype": "form",
+	"patternScreenId": "my_visit_call",
+    "save": {
+        "online": "false",
+        "infoCode": "user_attachments",
+        "infoRefNo1": "",
+        "infoRefNo2": "",
+        "timestamp": "00000000-0000-0000-0000-000000000000",
+        "mode": "A"
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "placeholder": {
+        "language_popup": {
+            "title": "My Language"
+        },
+        "profile_popup": {
+            "title": "My Profile",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "mobile_no": "Mobile No",
+            "email_id": "Email ID"
+        },
+        "change_password_popup": {
+            "title": "Change Password",
+            "old_password": "Old Password",
+            "new_password": "New Password",
+            "confirm_password": "Confirm Password"
+        },
+        "login_popup": {
+            "title": "Login",
+            "user_name": "User Name",
+            "password": "Password"
+        }
+    },
+    "field": {
+        "in_app_feature": {
+            "profile_edit": "My Profile",
+            "change_language": "My Language",
+            "my_notification": "My Notification",
+            "login": "Login",
+            "change_password": "Change Password",
+            "logout": "Logout",
+            "help": "Help"
+        },
+        "language_popup": {
+            "title": "My Language"
+        },
+        "profile_popup": {
+            "title": "My Profile"
+        },
+        "change_password_popup": {
+            "title": "Change Password",
+            "password_strength": "Your password must have minimum 8 characters, minimum one lowercase, one uppercase, one special character and one numeric value"
+        },
+        "login_popup": {
+            "title": "Login",
+            "countryCode": "Country Code"
+        },
+        "punch_in_out_popup": {
+            "punch_in_title": "Punch In",
+            "punch_out_title": "Punch Out",
+            "punch_in_date": "Punch-In Date : ",
+            "punch_out_date": "Punch-Out Date : ",
+            "Punch_details": "Punch Details"
+        },
+        "camera_preview_popup": {
+            "title": "Preview",
+            "camera_preview_delete_confirm": "Are you sure, want to delete?"
+        },
+        "punch_in_out_popup": {
+            "punch_in_title": "Punch In",
+            "punch_out_title": "Punch Out",
+            "punch_in_date": "Punch-In Date :",
+            "punch_out_date": "Punch-Out Date :",
+            "Punch_details": "Punch Details"
+        },
+        "my_asset_birthday_popup": {
+            "title": "Happy Birthday"
+        },
+        "attachment_progress_popup": {
+            "upload_progress_title": "Uploading...",
+            "download_progress_title": "Downloading..."
+        },
+        "camera_preview_popup": {
+            "camera_preview_delete_confirm": "Are you sure you want delete the photo"
+        },
+        "call_info_popup": {
+            "call_info_popup_title": "Info"
+        },
+        "device_location_popup": {
+            "device_location_popup_title": "Last known location"
+        },
+        "filter_drawer": {
+            "title": "Filter"
+        },
+        "msSearchpopup": {
+            "title": "Select"
+        },
+        "location_permission_popup": {
+            "title": "Location Permission",
+            "message": "Please enable 'Allow all the time' option in location permission settings"
+        },
+        "verify_security_code_popup": {
+            "sms_title": "Verify SMS Code",
+            "email_title": "Verify Email Code",
+            "security_code_sent_to_lbl": "Enter the CODE sent to ",
+            "security_code_resend_lbl": "Didn't receive the code? Retry in ",
+            "security_code_resend_button": "RESEND CODE",
+            "security_code_verify_button": "Verify",
+            "security_code_error_invalid_details": "Invalid details",
+            "security_code_error_update_security_code_log": "error occured",
+            "security_code_error_incorrect_security_code": "Incorrect security code",
+            "security_code_invalid_expiry_interval": "Expiry interval is not available",
+            "security_code_error_generating_the_code": "error occured in generating the security code",
+            "security_code_error_creating_notification": "error occured in creating notification",
+            "security_code_error_security_code_expired": "Security code Expired, please click RESEND",
+            "security_code_error_number_missing": "Please enter all the security code numbers",
+            "security_code_generated_success": "Security code generated successfully, you will receive SMS shortly",
+            "security_code_verification_success": "security code verified successfully"
+        }
+    },
+    "toastMessages": {
+        "punch_in_failed": "Failed to punch in",
+        "punch_out_failed": "Failed to punch out",
+        "punch_in_success": "Punch In time : #: code#",
+        "punch_out_success": "Out time : #: code#",
+        "punch_in_profile_not_available": "Punch-in profile file not available",
+        "time_setting_not_automatic": "Please turn on your automatic time settings in the device settings",
+        "get_date_error": "Failed to get the date",
+        "location_error": "Could not find your location. Please retry after sometime",
+        "location_not_enabled": "Please turn on your location in the device settings"
+    },
+    "confirmMessages": {
+        "turnOnAutomaticDateTime": "Please turn on your automatic time settings in the device settings"
+    }
+}

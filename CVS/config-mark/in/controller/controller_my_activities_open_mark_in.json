@@ -1,0 +1,38 @@
+{
+        "pattern_name":"query",
+        "list":{
+            "pattern":"true",
+            "parent_screen_id":"my_activities_open",
+            "containR_type" : "listview",
+            "containR_subtype" : "master",
+            "scrId" : "my_activities_open_list",
+            "dSource":	{
+                "my_activities_open_list": {
+                    "type" : "list",
+                    "inputParam": {
+                        "code": "'my_activities'",
+                        "inputXml": "{\"transaction_type_filter\":\"'CALL'\",\"request_ref_no_filter\":\"'ALL'\",\"request_category_filter\":\"'ALL'\",\"request_type_filter\":\"'ALL'\",\"request_status_filter\":\"'O,AE,WC,CC,VS,CO'\"}"
+                    }
+                }
+            }
+        },
+        "chat":{
+            "allowMessage":"true",
+            "pattern":"true",
+            "parent_screen_id":"my_activities_open",
+            "attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+            "containR_type": "chat",
+            "containR_subtype": "chat",
+            "custom": {
+                "trans_type":"'CALL'",
+                "cust_cont_name":"$mService.app.getFirstName()",
+                "cust_cont_no": "$mService.app.getMobileNo()",
+                "cust_cont_email": "$mService.app.getEmailId()",
+                "req_catg": "'SE'",
+                "req_type": "'BDWN'"
+            }
+            
+        },
+		"cacheUsed":"ALLOWED_ATTACHMENT_SIZE_CACHE,ALLOWED_ATTACHMENT_EXTENSION_CACHE"
+}
+

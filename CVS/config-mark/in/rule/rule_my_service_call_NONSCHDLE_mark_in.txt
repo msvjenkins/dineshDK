@@ -1,0 +1,21 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_NONSCHDLE"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				APPLY [OtherfieldPattern] ON [#my_service_call_NONSCHDLE_report_num, #my_service_call_NONSCHDLE_machine_model];
+				APPLY [NumberPattern] ON [#my_service_call_NONSCHDLE_duration, #my_service_call_NONSCHDLE_service_contact_num, #my_service_call_NONSCHDLE_customer_contact_person_num ];
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_customer_name] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.customer_name];
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_report_num] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.call_no];
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_machine_model] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.equipment_id]; 
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_problem_desc] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.problem_description];			
+				APPLY [Hide] ON [#my_service_call_NONSCHDLE_report_num, #my_service_call_NONSCHDLE_report_submission_date];
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_customer_contact_person] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.cust_contact_name]; 
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_service_name] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.assigned_to_emp_name]; 
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_customer_contact_person_num] VALUE [$mService.containR.variable.my_service_call_NONSCHDLE.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_NONSCHDLE_report_submission_date] VALUE [NEWDATE];
+				APPLY [Disable] ON [#my_service_call_NONSCHDLE_customer_name, #my_service_call_NONSCHDLE_machine_model, #my_service_call_NONSCHDLE_problem_desc ];
+				APPLY [Mandatory] ON [#my_service_call_NONSCHDLE_customer_signature, #my_service_call_NONSCHDLE_service_signature];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

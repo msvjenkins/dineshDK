@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "home"]			
+			RULE_BEGIN [NAME = "start rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [$home.variable.autoload.ServEng] VALUE ["MMYCALLS2"];
+			RULE_END				
+		FIELD_END
+	EVENT_END
+OBJECT_END

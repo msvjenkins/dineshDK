@@ -1,0 +1,18 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_content"]
+			RULE_BEGIN [NAME = "Restrict Rule 1", ORDER = "1"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.request_type == "STA") )
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ['MROCRPT'];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "Restrict Rule 2", ORDER = "2"]
+				IF (($mService.containR.variable.my_service_call.selectedRecord.request_type == "PRC") )
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.pattern.listview.wFlow.restrictFeatures] VALUE ['MROCRPT'];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

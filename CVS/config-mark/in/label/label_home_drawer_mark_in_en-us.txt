@@ -1,0 +1,12 @@
+{
+	"field": {
+		"home": "Home",
+		"about": "About",
+		"change_password": "Change Password",
+		"manage_accounts": "Manage Accounts",
+		"my_notification": "Notifications"
+	},
+	"screen": {
+		"title": "Home drawer"
+	}
+}

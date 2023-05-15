@@ -1,0 +1,70 @@
+<style>
+	.ms_containR_sales_call_list {
+		margin: 1em!important;
+		height: max-content;
+		padding: 0em!important;
+		border-radius: 8px;
+		box-shadow: 0px 0px 5px 1px #b9b9b9;
+	}
+	
+    .nodata{
+		text-align: center;
+		height: 100%;
+		font-size: 12em;
+		padding: .6em 0em;
+		display: block;
+		opacity: .3;
+	}
+	.ms_attachment_icon{
+		height: 4em;
+		width: 4em;
+		display: grid;
+		place-items: center;
+		border-radius: 50%;
+		margin: 0.5em;
+		box-shadow: 0px 0px 5px 2px #b9b9b9;
+	}
+	
+
+
+</style>	
+<script type="text/x-kendo-tmpl" id="my_sales_call_attachments_listview_template" data-ms-mswidget-for="my_sales_call_attachments" data-ms-mswidget-template-type="listview">
+<div class="ms_containR_sales_call_list" style="display: flex">
+	<div style="display: flex; padding: 1em 0.5em;width:100%;">
+		#if(data.id === "" ){ # 
+			<div style="flex: 90;display: flex;" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="openDoc" data-ms-containr-param='{"docType":"#: data.type #", "docSrc":"#: mService.nfs.root+mService.app.root+ '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + 'content_store' + '/' + data.path + '/' + data.name #"}'>
+		# } else { #
+			<div style="flex: 90;display: flex;" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="openDoc" data-ms-containr-param='{"docType":"#: data.type #", "docSrc":"#: mService.nfs.root+mService.app.root+ '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + 'content_store' + '/'+data.path  + '/' + mService.containR.variable.my_sales_call_attachments.selectedRecord.request_ref_no + '/' + data.name#"}'>
+			
+		# } #
+		<div style="list-style: none;flex: 20;"> 
+			<div style="width: 4em;height: 4em;border-radius: 50%;display: grid;place-items: center;" class="ms_theme_bg_color1 ms_theme_color9 ms_attachment_icon">
+			# if (data.type === "A") { # 
+				<i  class="fas  #: mService.icons.knowledgebase.audio #  ms_theme_color9" style="font-size:1.8em;"></i>
+			# } else if (data.type === "V") { # 
+				<i class="fas #: mService.icons.knowledgebase.video #  ms_theme_color9" style="font-size:1.8em;"></i>
+			# } else if (data.type === "I") { # 
+				# if(data.thumbnail=== undefined || data.thumbnail === "" || data.thumbnail === null){#
+					<i class="fas #: mService.icons.knowledgebase.image #  ms_theme_color9" style="font-size:1.8em;"></i>
+				#}else {#
+					#var thumbnail= (data.thumbnail).replace("data:image/jpeg;base64,","").replace("data:image/png;base64,","") #
+					<img src="#: "data:image/jpeg;base64," + thumbnail #"   style="border-radius: 50px;height: 4em;width: 4em;
+					"/>
+				#} #
+			# } else if (data.type === "P") { # 
+				<i class="fas #: mService.icons.knowledgebase.pdf #  ms_theme_color9" style="font-size:1.8em;"></i>
+			# } #
+		</div>
+	  </div>
+	  <div style="display: flex; align-items: center;flex: 70;">
+		<p style="padding: 0em 0.9em; font-weight: bold">
+			#: data.name #
+		</p>
+	  </div>
+	</div>
+	  <div style="display: flex;align-items: center;justify-content: center;flex: 10;">
+		  <i data-ms-widget-type="mButton" data-ms-button-group="listview" data-ms-button-role="delete" data-ms-uid="#: uid #" data-ms-uid-src="my_sales_call_attachments" data-ms-containR-param='{"transaction_type":"#:attached_at_transaction#","file_id":"#:id#","file_name":"#:name#"}' class="fas fa-trash  ms_theme_color6" style="font-size: 1.2em;padding: 0.5em;"></i>  
+		</div>
+	</div>
+  </div>
+</script>

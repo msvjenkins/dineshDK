@@ -1,0 +1,28 @@
+{
+    "field": {
+		"screen": {
+			"title": "Call Details"
+		},
+		"form": {
+			"call_info": "Call Info",
+			"schedule_info": "Schedule Date",
+			"actual_info": "Actual Date",
+			"date_info": "Date Info",
+			"machine_info": "Machine Info",
+			"created_on": "Created On",
+			"customer_info": "Customer Info",
+			"attachment_info":"Attachments",
+			"assigned_on": "Assigned On",
+			"sch_start_on": "Sch. Start On",
+			"sch_finish_on": "Sch. Finish On",
+			"act_start_on": "Act. Start On",
+			"act_finish_on": "Act. Finish On",
+			"closed_on":"Closed On"
+			
+		}
+    },
+	"toastMessages": {
+		"load_controller_file_error": "Unable to load controller file",
+		"load_config_files_error": "Unable to load config files"
+	}
+}

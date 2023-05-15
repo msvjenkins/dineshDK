@@ -1,0 +1,37 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_details"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_details_call_no] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_details_created_by_emp_name] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.created_by_emp_name];
+				APPLY [SetValue] ON [#my_service_call_details_assigned_to_emp_name] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_details_company_location_name] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.company_location_name];
+				APPLY [SetValue] ON [#my_service_call_details_created_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.created_on_date];
+				APPLY [SetValue] ON [#my_service_call_details_sch_start_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.sch_start_on_date];
+				APPLY [SetValue] ON [#my_service_call_details_sch_finish_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.sch_finish_on_date];
+				APPLY [SetValue] ON [#my_service_call_details_assigned_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.assigned_on_date];
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF ($mService.containR.variable.my_service_call_details.selectedRecord.act_start_on_date != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_details_act_start_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.act_start_on_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_details_act_start_on_date] VALUE [""];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 3", ORDER = "3"]
+				IF ($mService.containR.variable.my_service_call_details.selectedRecord.act_finish_on_date != "")
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_details_act_finish_on_date] VALUE [$mService.containR.variable.my_service_call_details.selectedRecord.act_finish_on_date];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_details_act_finish_on_date] VALUE [""];
+				END
+			RULE_END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

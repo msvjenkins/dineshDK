@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "new_location"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#new_location_name,#new_location_address,#new_location_state,#new_location_district,#new_location_pincode];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

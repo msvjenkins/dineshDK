@@ -1,0 +1,48 @@
+{
+    "field": {
+        "screen": {
+            "title": "My Profile"
+        },
+        "form": {
+            "first_name": "First Name",
+           "last_name": "Last Name",
+            "mobile_no": "Mobile No",
+           "email_id": "Email ID",
+            "edit_profile": "EDIT PROFILE",
+           "edit_cancel": "CANCEL",
+            "edit_save": "SAVE",
+            "delete_account": "DELETE ACCOUNT"
+        },
+        "delete_account_popup":{
+            "title": "Are you sure?",
+            "message": "This process is not reversible!, Do you want to delete your account?"
+        }
+    },
+    "toastMessages": {
+        "success": "Report submitted sucessfully",
+        "service_exception": "Service Exception",
+        "get_date_error": "Failed to get the date",
+        "load_controller_file_error": "Unable to load controller file",
+        "load_config_files_error": "Unable to load config files",
+        "delete_config_files_error": "Failed to delete config files",
+        "form_fields_mandatory_alert": "Please fill all the mandatory fields",
+        "save_draft_success": "Form saved successfully",
+        "save_draft_error": "Unable to save the form",
+        "form_submit_internet_connection_error": "Internet connection is required to proceed further.",
+        "form_submit_success": "Form Submitted  successfully",
+        "form_submit_error": "Failed to send the form data",
+        "save_pdf_data_error": "Unable to send pdf data",
+        "save_pdf_html_data_error": "Unable to send pdf data",
+        "form_back_click_alert": "Do you want to go back?",
+        "form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+        "form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?",
+        "create_trans_key_error": "Failed to create transaction key file"
+    },
+    "confirmMessages": {
+        "form_submit_alert": "Do you want to submit?",
+        "TurnOnAutomaticDateTime": "Please turn on automatic date and time settings.",
+        "form_back_click_data_alert": "Entered data will be lost. Do you want to go back?",
+        "form_back_click_auto_save_alert": "Do you want to save the the data in draft and go back?"
+    },
+    "wFlowEvents": {}
+}

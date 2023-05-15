@@ -1,0 +1,74 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_sales_call_MSAPROGUPDATE"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_time] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_eventverb_id] VALUE [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.eventVerbID];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_from_wf_stage_no] VALUE [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.call_wf_stage];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_from_wf_status] VALUE [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.call_status];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_stage_no] VALUE [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_stage];
+				APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_status] VALUE [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_status];
+				APPLY [Disable] ON [#my_sales_call_MSAPROGUPDATE_date,#my_sales_call_MSAPROGUPDATE_time];
+				APPLY [Hide] ON [#my_sales_call_MSAPROGUPDATE_eventverb_id,#my_sales_call_MSAPROGUPDATE_from_wf_stage_no,#my_sales_call_MSAPROGUPDATE_from_wf_status,#my_sales_call_MSAPROGUPDATE_to_wf_stage_no,#my_sales_call_MSAPROGUPDATE_to_wf_status,#my_sales_call_MSAPROGUPDATE_date,#my_sales_call_MSAPROGUPDATE_time];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_sales_call_MSAPROGUPDATE_reason_code"]
+			RULE_BEGIN [NAME = "PU Code rule", ORDER = "1"]
+				IF (#my_sales_call_MSAPROGUPDATE_reason_code == "WP-60")
+				BEGIN
+					APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_stage_no] VALUE ["2"];
+				    APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_status] VALUE ["60"];
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_status_desc] VALUE ["WP-60"];
+				END
+	        RULE_END
+			RULE_BEGIN [NAME = "PU Code rule", ORDER = "2"]
+				IF (#my_sales_call_MSAPROGUPDATE_reason_code == "WP-70")
+				BEGIN
+					APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_stage_no] VALUE ["2"];
+				    APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_status] VALUE ["70"];
+                    APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_status_desc] VALUE ["WP-70"];
+				END
+	        RULE_END
+			RULE_BEGIN [NAME = "PU Code rule", ORDER = "3"]
+				IF (#my_sales_call_MSAPROGUPDATE_reason_code == "WP-80")
+				BEGIN
+					APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_stage_no] VALUE ["2"];
+				    APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_status] VALUE ["80"];
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_status_desc] VALUE ["WP-80"];
+				END
+	        RULE_END
+			RULE_BEGIN [NAME = "PU Code rule", ORDER = "4"]
+				IF (#my_sales_call_MSAPROGUPDATE_reason_code == "WP-90")
+				BEGIN
+					APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_stage_no] VALUE ["2"];
+				    APPLY [SetValue] ON [#my_sales_call_MSAPROGUPDATE_to_wf_status] VALUE ["90"];
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.to_wf_status_desc] VALUE ["WP-90"];
+				END
+	        RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "Save rule", ORDER = "1"]
+				IF (($mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.act_start_on_date EQ ""))
+				BEGIN
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.act_start_on_date] VALUE [$mService.util.date.getDateTimeString($("#my_sales_call_MSAPROGUPDATE_date").getVal(), "yyyy-MM-dd")];
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.act_start_on_hour] VALUE [$mService.util.date.getDateTimeString($("#my_sales_call_MSAPROGUPDATE_date").getVal(), "HH")];
+					APPLY [SetValue] ON [$mService.containR.variable.my_sales_call_MSAPROGUPDATE.selectedRecord.act_start_on_minute] VALUE [$mService.util.date.getDateTimeString($("#my_sales_call_MSAPROGUPDATE_date").getVal(), "mm")];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					CONTINUE;
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

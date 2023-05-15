@@ -1,0 +1,10 @@
+{
+	"field": {
+		"app_version": "Version",
+		"app_build_number": "Build Number",
+		"device_code": "Device ID"
+	},
+	"screen": {
+		"title": "About"
+	}
+}

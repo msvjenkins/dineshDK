@@ -1,0 +1,60 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "machine_life"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#machine_life_asset_id];
+				APPLY [Show] ON [#machine_life_no_data];
+				APPLY [Hide] ON [#machine_life_timeline_header];
+				APPLY [Hide] ON [#machine_life_timeline];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"] 
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "machine_life_get_documents"]
+			RULE_BEGIN [NAME = "validation", ORDER = "1"]
+				IF ($mService.containR.variable.machine_life.validator.machine_life.validate().toString() === "true")
+				BEGIN
+					APPLY [Read] ON [$mService.containR.dSource.machine_life.machine_life_detail];
+					
+					APPLY [SetValue] ON [#machine_life_timeline_header] VALUE [FN_TRANSFORHTML(#machine_life_header_template, $mService.containR.dSource.machine_life.machine_life_detail.data()[0])];
+					APPLY [SetDataSource] ON [#machine_life_timeline] VALUE [$mService.containR.dSource.machine_life.machine_life_detail.data()[0].detail];
+					APPLY [Read] ON [$mService.containR.dSource.machine_life.machine_life_list];
+					APPLY [SetDataSource] ON [#machine_life_list_timeline] VALUE [$mService.containR.dSource.machine_life.machine_life_list];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#machine_life_timeline];
+					APPLY [Hide] ON [#machine_life_timeline_header];
+					APPLY [Show] ON [#machine_life_no_data];
+					APPLY [ShowToast] ON [#machine_life] VALUE ['enter_data_to_search'];
+				END
+			RULE_END
+		FIELD_END
+	
+	EVENT_END
+	EVENT_BEGIN [NAME = "postclick"]
+		FIELD_BEGIN [NAME = "machine_life_get_documents"]
+			RULE_BEGIN [NAME = "show data ", ORDER = "1"]
+				IF ($mService.containR.dSource.machine_life.machine_life_detail.data()[0].detail.length.toString() !== "0")
+				BEGIN
+					APPLY [Show] ON [#machine_life_timeline_header];
+					APPLY [Show] ON [#machine_life_timeline];
+					APPLY [Hide] ON [#machine_life_no_data];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					APPLY [Hide] ON [#machine_life_timeline_header];
+					APPLY [Hide] ON [#machine_life_timeline];
+					APPLY [Show] ON [#machine_life_no_data];
+					APPLY [ShowToast] ON [#machine_life] VALUE ['no_events_happened'];
+					
+				END
+			RULE_END
+		FIELD_END
+		
+	EVENT_END
+OBJECT_END

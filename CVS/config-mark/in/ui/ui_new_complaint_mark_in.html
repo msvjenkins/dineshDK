@@ -1,0 +1,58 @@
+<div id="new_complaint" data-ms-view-layout="false"  data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="new_complaint">	
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+			<label id="new_complaint_title_lbl" data-ms-lbl="field" data-ms-lbl-src="new_complaint" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+			<a data-align="right"><img src="../ux/image/client_brand_icon.png" style="height: 35px;"/></a>
+		</div>
+	</header>
+	<div data-role="content" id="new_complaint_content" class="ms_form_content_page">
+		<div id="new_complaint_main_page" data-ms-widget-type="msSubpage">
+			<div id="new_complaint_firstpage" data-role="page" data-ms-containr-subpage-no="1" style="height:80vh;overflow:scroll;">
+				<div id="new_complaint_machine_info" data-ms-widget-type="msDisplaybox" style="padding: 1em!important; border-bottom: 1px solid #888;">
+					<div style="font-weight: 700; margin-bottom: 0.5em;">
+						<span id="new_complaint_machine_name" data-ms-widget-type="msDisplaybox"></span>
+						<span id="new_complaint_machine_number" data-ms-widget-type="msDisplaybox" style="float:right;"></span>
+					</div>
+					<div>
+						<span id="new_complaint_machine_state" data-ms-widget-type="msDisplaybox"></span>
+						<span id="new_complaint_machine_dist" data-ms-widget-type="msDisplaybox" style="float:right;"></span>
+					</div>
+					<div>
+						<span id="new_complaint_machine_description" data-ms-widget-type="msDisplaybox"></span>
+					</div>
+				</div>
+				<input id ="new_complaint_visitor_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="visitor_id" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_asset_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="asset_id" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_category" data-ms-widget-type="msRadiogroup" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="category" data-ms-widget-prop-savefield="true" data-ms-widget-prop-checked="checked" data-ms-widget-prop-datasrc='[{"code": "SE","description": "Service"}, {"code": "PE","description": "Parts"}]' data-ms-widget-prop-textField="description" data-ms-widget-prop-valuefield="code"/>
+				<input id ="new_complaint_equipment_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="equipment_id" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_problem_description" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="problem_description" data-ms-widget-prop-maxlen="1000" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_asset_location" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="asset_location" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_requested_date" data-ms-widget-type="msDatebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="requested_date" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_customer_contact_name" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_contact_name" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_customer_contact_number" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_contact_number" data-ms-widget-prop-maxlen="15" data-ms-widget-prop-savefield="true"/>
+				<input id ="new_complaint_customer_contact_email" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="customer_contact_email" data-ms-widget-prop-savefield="true"/>
+				<div id="new_complaint_part_details" data-ms-widget-type="msLoop" data-ms-widget-prop-maxlimit="2" data-ms-widget-prop-savefield="true" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_details"> 
+					<input id ="new_complaint_part_number" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="new_complaint_part_details" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="part_number" data-ms-widget-prop-maxlen="50" data-ms-widget-prop-savefield="true"/>
+					<input id ="new_complaint_description" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="new_complaint_part_details"  data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="description" data-ms-widget-prop-maxlen="1000" data-ms-widget-prop-savefield="true"/>
+					<input id ="new_complaint_quantity" data-ms-widget-type="msTextbox" data-ms-widget-prop-msloop="new_complaint_part_details"  data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="quantity" data-ms-widget-prop-maxlen="3" data-ms-widget-prop-savefield="true"/>
+				</div>
+			</div>					
+		</div>
+	</div>
+	<div id="new_complaint_footer" data-role = "footer" data-position = "fixed"  data-theme = "a" data-tap-toggle = "false" class="ms_footer">
+		<center>
+			<span class="ms_form_action_icon">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="fas fa-check-circle"></i>
+			</span>	
+		</center>
+	</div>
+</div>
+
+
+
+
+
+
+
+

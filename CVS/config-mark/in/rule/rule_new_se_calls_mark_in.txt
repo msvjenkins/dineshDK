@@ -1,0 +1,11 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "new_se_calls"]
+			RULE_BEGIN [NAME = "", ORDER = "1"]
+				APPLY [Hide] ON [#new_se_calls_category];
+				APPLY [SetValue] ON [#new_se_calls_category] VALUE ["SE"];
+				APPLY [Filter] ON [#new_se_calls_type];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,19 @@
+{
+	"field": {
+		"entry_date": "Date:",
+		"from_time": "From Time:",
+		"to_time": "To Time:",
+		"duration": "Duration",
+		"feature": "Feature:",
+		"category": "Category:",
+		"call": "Call:",
+		"call_category": "Category:",
+		"comments": "Comments"
+	},
+	"screen": {
+		"title": "Time Card"
+	},
+	"button": {
+		"save" : "Save"
+	}
+}

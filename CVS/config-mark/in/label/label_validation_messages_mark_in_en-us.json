@@ -1,0 +1,12 @@
+{
+	"validationRuleMandatory": "Should not be empty",
+	"validationRuleKeyfieldPattern": "Only a-zA-Z0-9._-/ are allowed",
+	"validationRuleOtherfieldPattern": "a-zA-Z0-9_-\\#/& :@;.,()[] are allowed",
+	"validationRuleNumberPattern": "This is not a valid Number",
+	"validationRuleDecimalPattern": "This is not a valid Number",
+	"validationRuleDatePickerPattern": "Date should be in 'dd-mm-yyyy' format",
+	"validationRuleDateTimePickerPattern": "Date & Time should be in 'dd-mm-yyyy hh:mm' (24 hour) format",
+	"email": "This is not a valid E-mail id",
+	"validationRuleMinimum":"Value should be greater than ",
+	"validationRuleMaximum": "Value should be less than "
+}

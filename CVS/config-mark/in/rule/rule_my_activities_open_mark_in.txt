@@ -1,0 +1,81 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_activities_open"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Optional] ON [#my_activities_open_chat_COMPLETE_attachment,#my_activities_open_chat_COMPLETE_comments] ;
+				APPLY [SetValue] ON [$mService.app.notificationOpenedInd] VALUE ['true'];
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_COMPLETE"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ((($mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.value === "@COMPLETE") AND ($mService.containR.variable.my_activities_open_chat.selectedRecord.request_status === "CC") AND ($mService.containR.variable.my_activities_open_chat.selectedRecord.request_wf_stage === "3")))
+				BEGIN
+					APPLY [Hide] ON [#my_activities_open_chat_COMPLETE_attachment] ;
+					APPLY [Optional] ON [#my_activities_open_chat_COMPLETE_attachment];
+					APPLY [Show] ON [#my_activities_open_chat_COMPLETE_comments] ;
+					APPLY [Mandatory] ON [#my_activities_open_chat_COMPLETE_comments];
+				END
+			RULE_END
+			RULE_BEGIN [NAME = "rule 2", ORDER = "2"]
+				IF ((($mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.value === "@COMPLETE") AND ($mService.containR.variable.my_activities_open_chat.selectedRecord.request_status === "VS") AND ($mService.containR.variable.my_activities_open_chat.selectedRecord.request_wf_stage === "3")))
+				BEGIN
+					APPLY [Mandatory] ON [#my_activities_open_chat_COMPLETE_attachment] ;
+					APPLY [Hide] ON [#my_activities_open_chat_COMPLETE_comments];
+					APPLY [Optional] ON [#my_activities_open_chat_COMPLETE_comments];
+					APPLY [Show] ON [#my_activities_open_chat_COMPLETE_attachment] ;
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_PROGRESSUPDATE"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#my_activities_open_chat_PROGRESSUPDATE_reason_code] ;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "my_activities_open_ACCEPT"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_REJECT"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_CONTACTEDCUSTOMER"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_STARTVISIT"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_PROGRESSUPDATE"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_activities_open_COMPLETE"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_status',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_status)];
+				APPLY [SetValue] ON [my_activities_open_list] VALUE [FN_UPDATEDATASOURCE('request_wf_stage',$mService.widgets.variable.msChat.variable.my_activities_open_chat_content.selectedAction.to_wf_stage)];
+				CONTINUE;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

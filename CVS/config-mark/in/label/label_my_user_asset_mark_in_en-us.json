@@ -1,0 +1,1 @@
+{"field":{"screen":{"title":"Associate Equipments"}},"toastMessages":{"success":"# if(link_indication === 'link') { # Machine successfully linked to this user # } else { # Machine successfully de-linked from this user # } #","error_asset_mapping_insert":"Machine linking failed","error_asset_mapping_delete":"Machine de-linking failed","service_exception":"Service Exception"}}

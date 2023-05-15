@@ -1,0 +1,26 @@
+{
+	"containR_type": "form",
+	"containR_subtype": "workflow",
+	"digitalReport": "true",
+	"scrId": "my_service_call_roc_form",
+	"formName": "#: mService.app.getUserId() #_#: kendo.toString(new Date(), 'ddMMyy') #_#: 'roc_form' #",
+	"transNo": "#: mService.containR.variable.my_service_call_roc_form.selectedRecord.request_ref_no #",
+	"transType": "",
+	"attachmentPathKey": "ATTACHMENT_PATH_CACHE",
+	"saveDraft": "true",
+	"save": {
+		"online": "false",
+		"infoCode": "roc_form",
+		"headerInput": "",
+		"infoRefNo1": "",
+		"infoRefNo2": "",
+		"timestamp": "",
+		"mode": "",
+		"checkLocationSettings": "",
+		"checkTimeSettings": ""
+	},
+	"show_ui": "",
+	"allow_new_transaction": "true",
+	"modify_last_transaction": "true",
+	"patternScreenId": "my_service_call"
+}

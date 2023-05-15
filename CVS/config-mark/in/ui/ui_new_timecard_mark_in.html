@@ -1,0 +1,56 @@
+<div id="new_timecard" data-ms-view-layout="false"  data-ms-view-type="containR" data-ms-view-subtype="form" data-ms-view-group="new_timecard">	
+	<header data-role="header">
+		<div data-role="navbar" style="font-size:1.1em; height:3.5em;">
+			<a data-align="left"><i class="fas fa-arrow-left" data-role="backbutton" data-click="mService.events.backbutton"></i></a>
+			<label id="new_timecard_title_lbl" data-ms-lbl="field" data-ms-lbl-src="new_timecard" data-ms-lbl-grpid="screen" data-ms-lbl-id="title"></label>
+			<a data-align="right"><img src="../ux/image/client_brand_icon.png" style="height: 35px;"/></a>
+		</div>
+	</header>
+
+	<div data-role="content" id="new_timecard_content" class="ms_form_content_page">
+		<div id="new_timecard_main_page" data-ms-widget-type="msSubpage">
+			<div id="new_timecard_firstpage" data-role="page" data-subpage-no="1" style="height:90vh;overflow:scroll;">
+				<input id ="new_timecard_entry_date" data-ms-widget-type="msDatebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="entry_date" data-ms-widget-prop-format="dd-MM-yyyy" data-ms-widget-prop-savefield="true"/>	
+				
+				<input id ="new_timecard_from_time" data-ms-widget-type="msTimebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="from_time" data-ms-widget-prop-dateInput="true" data-ms-widget-prop-interval="30" data-ms-widget-prop-format="HH:mm"  data-ms-widget-prop-savefield="true"/>
+				
+				<input id ="new_timecard_to_time" data-ms-widget-type="msTimebox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="to_time" data-ms-widget-prop-dateInput="true" data-ms-widget-prop-interval="30" data-ms-widget-prop-format="HH:mm" data-ms-widget-prop-savefield="true"/>
+				
+				<!-- <div id="new_timecard_duration_content" data-ms-widget-type="msDisplaybox">
+					<label id="new_timecard_duration_lbl" data-ms-lbl="field" data-ms-lbl-src="new_timecard" data-ms-lbl-grpid="form" data-ms-lbl-id="duration"></label>
+					<span id="new_timecard_duration" data-ms-widget-type="msDisplaybox"></span>
+				</div> -->
+				
+				<input id ="new_timecard_feature" data-ms-widget-type="msCombobox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="feature"  data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='$mService.dSource.cache.TIMECARD_FEATURE_CACHE' data-ms-widget-prop-savefield="false"/>
+				
+				<input id ="new_timecard_category" data-ms-widget-type="msCombobox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="category"  data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='$mService.dSource.cache.TIMECARD_CATEGORY_CACHE' data-ms-widget-prop-savefield="false"/>
+				
+				<input id="new_timecard_scall_ref_no" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="call" data-ms-widget-prop-savefield="true"/>
+				
+				<input id ="new_timecard_call_category" data-ms-widget-type="msCombobox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="call_category"  data-ms-widget-prop-textfield="description" data-ms-widget-prop-valuefield="code" data-ms-widget-prop-cascadefrom="new_timecard_state" data-ms-widget-prop-cascadefromfield="state_code" data-ms-widget-prop-template="text" data-ms-widget-prop-datasrc='$mService.dSource.cache.TIMECARD_CALL_CATEGORY_CACHE' data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_comments" data-ms-widget-type="msTextarea" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="comments" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_project_scall_ind" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="project_scall_ind" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_alloc_type_code" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="alloc_type_code" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_project_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="project_id" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_template_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="template_id" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_task_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="task_id" data-ms-widget-prop-savefield="true"/>
+				
+				<input id="new_timecard_employee_id" data-ms-widget-type="msTextbox" data-ms-widget-prop-lblgrpid="form" data-ms-widget-prop-lblid="employee_id" data-ms-widget-prop-savefield="true"/>
+				
+			</div>		
+		</div>
+	</div>
+	<div id="new_timecard_footer" data-role = "footer" data-position = "fixed"  data-theme = "a" data-tap-toggle = "false" class="ms_footer">
+		<center>
+			<div class="ms_form_action_submit">
+				<i data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="submit" class="far fa-check"></i>
+			</div>
+		</center>
+	</div>
+</div>

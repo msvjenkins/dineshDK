@@ -1,0 +1,60 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_servicereport"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				APPLY [Hide] ON [#my_service_call_servicereport_date_1, #my_service_call_servicereport_customer_id];
+				APPLY [Disable] ON [#my_service_call_servicereport_date_commission_1, #my_service_call_servicereport_dlr_code, #my_service_call_servicereport_job_type, #my_service_call_servicereport_service_engg_name, #my_service_call_servicereport_model_no, #my_service_call_servicereport_dlr_name, #my_service_call_servicereport_dlr_address, #my_service_call_servicereport_report_no, #my_service_call_servicereport_report_date];
+				APPLY [Mandatory] ON [#my_service_call_servicereport_dlr_code, #my_service_call_servicereport_running_hrs, #my_service_call_servicereport_loaded_hrs, #my_service_call_servicereport_cust_sign, #my_service_call_servicereport_service_engg];
+				APPLY [SetValue] ON [#my_service_call_servicereport_report_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_servicereport_dlr_address] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.dealer_address];
+                APPLY [SetValue] ON [#my_service_call_servicereport_dlr_name] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.dealer_name];
+				APPLY [SetValue] ON [#my_service_call_servicereport_customer_id] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.customer_id];
+				APPLY [SetValue] ON [#my_service_call_servicereport_contact_person] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.cust_contact_name];
+				APPLY [SetValue] ON [#my_service_call_servicereport_contact_number] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.cust_contact_no];
+				APPLY [SetValue] ON [#my_service_call_servicereport_contact_email] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.cust_contact_email_id];
+				APPLY [SetValue] ON [#my_service_call_servicereport_model_no] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.equipment_id];
+				APPLY [SetValue] ON [#my_service_call_servicereport_report_no] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.request_ref_no];
+				APPLY [SetValue] ON [#my_service_call_servicereport_service_engg_name] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.assigned_to_emp_name];
+				APPLY [SetValue] ON [#my_service_call_servicereport_cont_num] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.assigned_to_emp_contact_no];
+				APPLY [SetValue] ON [#my_service_call_servicereport_job_type] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.request_type_desc];
+				APPLY [SetValue] ON [#my_service_call_servicereport_customer_address] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.cust_address];
+				APPLY [SetValue] ON [#my_service_call_servicereport_serial_no] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.asset_id];
+				APPLY [SetValue] ON [#my_service_call_servicereport_dlr_code] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.dealer_code];
+				APPLY [SetValue] ON [#my_service_call_servicereport_date_commission_1] VALUE [$mService.containR.variable.my_service_call_servicereport.selectedRecord.installation_date];
+				APPLY [NumberPattern] ON [#my_service_call_servicereport_contact_number];
+				APPLY [NumberPattern] ON [#my_service_call_servicereport_cont_num];
+				APPLY [NumberPattern] ON [#my_service_call_servicereport_running_hrs,#my_service_call_servicereport_loaded_hrs,#my_service_call_servicereport_travel_time,#my_service_call_servicereport_setpoint_load,#my_service_call_servicereport_setpoint_unload,#my_service_call_servicereport_air_dis_temp,#my_service_call_servicereport_volt_ry,#my_service_call_servicereport_volt_yb,#my_service_call_servicereport_volt_rb,#my_service_call_servicereport_volt_drop_ry,#my_service_call_servicereport_volt_drop_yb,#my_service_call_servicereport_volt_drop_rb,#my_service_call_servicereport_unload_a,#my_service_call_servicereport_unload_b,#my_service_call_servicereport_unload_c,#my_service_call_servicereport_fulload_a,#my_service_call_servicereport_fulload_b,#my_service_call_servicereport_fulload_c,#my_service_call_servicereport_current_a,#my_service_call_servicereport_current_b,#my_service_call_servicereport_current_c,#my_service_call_servicereport_tot_pac_a,#my_service_call_servicereport_tot_pac_b,#my_service_call_servicereport_tot_pac_c,#my_service_call_servicereport_air_dryer_v,#my_service_call_servicereport_air_dryer_a,#my_service_call_servicereport_lub_oil,#my_service_call_servicereport_oil_filter,#my_service_call_servicereport_oil_air_seperator,#my_service_call_servicereport_oil_soaked];	
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+OBJECT_BEGIN [NAME = "field"]
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "my_service_call_servicereport_ehs_condition"]
+			RULE_BEGIN [NAME = "Load rule", ORDER = "1"]
+				IF (((#my_service_call_servicereport_ehs_condition != "NO")))
+				BEGIN
+					APPLY [Hide] ON [#my_service_call_servicereport_ehs_condition_bad];
+                    APPLY [SetValue] ON [#my_service_call_servicereport_ehs_condition_bad] VALUE [""];
+					END
+				ELSE
+				BEGIN
+                    APPLY [Show] ON [#my_service_call_servicereport_ehs_condition_bad];
+					APPLY [SetValue] ON [#my_service_call_servicereport_ehs_condition_bad] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "my_service_call_servicereport_part_1_savedetails"]
+			RULE_BEGIN [NAME = "comm rule 1", ORDER = "1"]
+				IF ((#my_service_call_servicereport_part_1_savedetails != ""))
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_servicereport_desc_1_savedetails] VALUE [#my_service_call_servicereport_part_1_savedetails.description_1];
+				END
+				ELSE
+				BEGIN
+					APPLY [SetValue] ON [#my_service_call_servicereport_desc_1_savedetails] VALUE [""];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

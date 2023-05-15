@@ -1,0 +1,19 @@
+{
+	"containR_type" : "listview",
+	"containR_subtype" : "workflow",
+	"scrId" : "my_part_enquiry_call",
+	"dSourceKey" : "CALL_LIST_PE",
+	"workFlowEventsKey" : "CALL_WFLOW_PE",
+	"companyFeatureAccessOrderKey" : "CALL_FEATURE_ACCESS_ORDER_PE",
+	"digitalReport": "false",
+	"saveDraft": "false",
+	"dSource":	{
+		"my_part_enquiry_call_list": {
+			"type" : "list",
+			"inputParam": {
+				"code": "'my_calls'",
+				"inputXml": "{\"list_type\":\"'ENGINEER'\",\"call_ref_no\":\"'ALL'\",\"call_category\":\"'PE'\"}"
+			}
+		}
+	}
+}

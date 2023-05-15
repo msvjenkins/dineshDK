@@ -1,0 +1,363 @@
+<style>
+	.ms_my_service_call_mcalldetails_details_no{
+		text-align: center;
+		font-size: 1.2em!important;
+		margin: 0em 0em .5em 0em!important;
+		padding: .5em;
+		font-weight: 500;
+		background-color: #e0e0e0;
+	}
+	.ms_my_service_call_mcalldetails_title_label{
+		font-size: 1.2em;
+		font-weight: 800;
+	}
+	.ms_service_call_details_info_left_side{
+		float:left;
+		text-align: left;
+	}
+	.ms_service_call_details_info_right_side{
+		float:right;
+		text-align: left;
+	}
+	.ms_my_service_call_mcalldetails_section {
+		padding: 0em .5em 1em;
+		border-bottom: .8px dashed;
+		margin-bottom: 1em;
+	}
+	.ms_my_service_call_mcalldetails_section_header {
+		padding-bottom: 0.5em;
+	}
+	.fas fa-smile ms_theme_bg_color7 ms_theme_color1 iconsize{
+		font-size:1.3em;
+	}
+	.ms_my_service_call_mcalldetails_section_content_container {
+		display: flex;
+	}
+	.ms_my_service_call_mcalldetails_icons{
+		padding-right: 0.3em;
+		display: flex;
+		align-items:center;
+		flex:10;
+		margin: 0.2em 0;
+		font-size: 1.2em;
+   	  	padding: 0.2em;
+	}
+	.ms_my_service_call_mcalldetails_date_info_category_label{
+		font-size: 1.1em;
+		padding-bottom: 0.4em;
+	}
+	.ms_my_service_call_mcalldetails_data{
+		align-items: center;
+		display: flex;
+		flex:90;
+		word-break: break-all;
+    	width: 80%;
+    	white-space: break-spaces;
+	}
+	.ms_my_service_call_mcalldetails_section_header_customer{
+		padding: 0em 0.5em 1em;
+		margin-bottom: 1em;
+		border-bottom: 0.8px dashed;
+	}
+	.ms_my_service_call_mcalldetails_section_content{
+		padding-top: 0.2em;
+	}
+	.ms_service_call_MCALLDETAILS_attachment_container{
+		padding-top: 0em;
+   		padding-right: 0.5em;
+    	padding-bottom: 1em;
+    	padding-left: 0.5em;
+	}
+</style>	
+<script type="text/x-kendo-tmpl" id="my_service_call_MCALLDETAILS_template">
+	<div>
+		<div class="ms_my_service_call_mcalldetails_myrequest_cont" style="height: 100vh;overflow: scroll;">
+			<div>
+				<p class="ms_my_service_call_mcalldetails_details_no ms_theme_color1">#: data.call_no # - #: data.call_status_desc #</p>
+			</div>
+			<div class="ms_my_service_call_mcalldetails_section">
+				<div class="ms_my_service_call_mcalldetails_section_header">
+					<b class="ms_my_service_call_mcalldetails_title_label ms_theme_color1" data-ms-lbl-src="my_service_call_MCALLDETAILS" data-ms-lbl="field" " 
+                    data-ms-lbl-grpid="form" data-ms-lbl-id="call_info"></b>
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-exclamation-circle ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.problem_description # </span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-exclamation-circle ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.call_type_desc # </span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_header">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class=" ms_my_service_call_mcalldetails_icons ms_theme_color1">
+							<i class="fas fa-user-hard-hat ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>						
+						# if(data.assigned_to_emp_id === "") { #
+							<span class="ms_my_service_call_mcalldetails_data">Engineer not assigned</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#: data.assigned_to_emp_name # [ #: data.assigned_to_emp_id # ]</span>
+						# } #							
+					</span>	
+				</div>
+			</div>
+			<div class="ms_my_service_call_mcalldetails_section">
+				<div class="ms_my_service_call_mcalldetails_section_header">
+					<b class="ms_my_service_call_mcalldetails_title_label ms_theme_color1"  data-ms-lbl="field" 
+                    data-ms-lbl-src="my_service_call_MCALLDETAILS" data-ms-lbl-grpid="form" data-ms-lbl-id="machine_info"></b>
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-wrench ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.asset_id #</span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-calendar-day ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						# if(data.installation_date === "") { #
+							<span class="ms_my_service_call_mcalldetails_data">Installation Date not available</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#:kendo.toString(kendo.parseDate(data.installation_date), 'dd MMM yyyy')#</span>
+						# } #
+							
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span  class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-map-marker-alt ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.asset_loc_reported #</span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-comment ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+						</span>
+						# if(data.equipment_desc === "") { #
+							<span class="ms_my_service_call_mcalldetails_data">Description not available</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#: data.equipment_desc # [ #: data.equipment_id # ]</span>
+						# } #							
+					</span>	
+				</div>
+			</div>	
+			<div class="ms_my_service_call_mcalldetails_section_header_customer">
+				<div class="ms_my_service_call_mcalldetails_section_header">
+					<b class="ms_my_service_call_mcalldetails_title_label ms_theme_color1" data-ms-lbl="field" data-ms-lbl-src="my_service_call_MCALLDETAILS" 
+                    data-ms-lbl-grpid="form" data-ms-lbl-id="customer_info"></b>
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-building ms_theme_bg_color7 ms_theme_color1"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.customer_name # [ #: data.customer_id # ]</span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-user ms_theme_bg_color7 ms_theme_color1"></i>
+						</span>
+						<span class="ms_my_service_call_mcalldetails_data">#: data.cust_contact_name #</span>
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-mobile-alt ms_theme_bg_color7 ms_theme_color1"></i>
+						</span>							
+						# if(data.cust_contact_no === "") { #
+							<span class="ms_my_service_call_mcalldetails_data">Contact Number not available</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#: data.cust_contact_no #</span>
+						# } #
+					</span>	
+				</div>
+				<div class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-envelope ms_theme_bg_color7 ms_theme_color1"></i>
+						</span>							
+						# if(data.cust_contact_email_id === "") { #
+							<span class="ms_my_service_call_mcalldetails_data">Email ID not available</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#: data.cust_contact_email_id #</span>
+						# } #
+					</span>	
+				</div>
+				<div  class="ms_my_service_call_mcalldetails_section_content">
+					<span class="ms_my_service_call_mcalldetails_section_content_container">
+						<span class="ms_my_service_call_mcalldetails_icons">
+							<i class="fas fa-map-marker-alt ms_theme_bg_color7 ms_theme_color1"></i>
+						</span>
+						# if(data.cust_location_code != "" && data.cust_location_code != "ZZZ" ) { #
+							<span class="ms_my_service_call_mcalldetails_data">Location not available</span>
+						# } else { #
+							<span class="ms_my_service_call_mcalldetails_data">#: data.cust_location_code #
+								# if(data.customer_address_line_1 != "") { #
+									, #: data.customer_address_line_1 #
+								# } # 
+								# if(data.customer_address_line_2 != "") { #
+									, #: data.customer_address_line_2 #
+								# } #
+								# if(data.customer_address_line_3 != "") { #
+									, #: data.customer_address_line_3 #
+								# } # 
+								# if(data.customer_city != "") { #
+									, #: data.customer_city #
+								# } #
+								# if(data.customer_state != "") { #
+									, #: data.customer_state #
+								# } #	
+								# if(data.customer_pincode != "") { #
+									, #: data.customer_pincode #
+								# } #	
+								# if(data.customer_country != "") { #
+									, #: data.customer_country #
+								# } #	
+							</span>
+						# } #	
+					</span>	
+				</div>
+			</div>
+			<div class="ms_my_service_call_mcalldetails_section">
+				<div class="ms_my_service_call_mcalldetails_section_header">
+					<b class="ms_my_service_call_mcalldetails_title_label ms_theme_color1" data-ms-lbl="field" data-ms-lbl-src="my_service_call_MCALLDETAILS" 
+                    data-ms-lbl-grpid="form" data-ms-lbl-id="date_info"></b>
+				</div>
+				# if(data.created_on_date != "") { #
+					<div class="ms_my_service_call_mcalldetails_section_content">
+						<span class="ms_my_service_call_mcalldetails_section_content_container">
+							<span class="ms_my_service_call_mcalldetails_icons">
+								<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+							</span>
+							<span class="ms_my_service_call_mcalldetails_data">Created on - #: kendo.toString(kendo.parseDate(data.created_on_date), 'dd MMM yyyy') # #: data.created_on_hour # : #: data.created_on_minute #</span>
+						</span>	
+					</div>
+				# } #
+					<div class="ms_my_service_call_mcalldetails_section_content">
+						# if(data.assigned_on_date != "") { #
+							<div class="ms_my_service_call_mcalldetails_section_content">
+								<span class="ms_my_service_call_mcalldetails_section_content_container">
+									<span class="ms_my_service_call_mcalldetails_icons">
+										<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+									</span>
+									<span class="ms_my_service_call_mcalldetails_data">Assigned on - #: kendo.toString(kendo.parseDate(data.assigned_on_date), 'dd MMM yyyy') # #: data.assigned_on_hour # : #: data.assigned_on_minute #</span>
+								</span>	
+							</div>
+						# } #
+					</div>
+						<div class="ms_my_service_call_mcalldetails_section_content">
+							# if(data.sch_start_on_date != "") { #
+								<div class="ms_my_service_call_mcalldetails_section_content">
+									<span class="ms_my_service_call_mcalldetails_section_content_container">
+										<span class="ms_my_service_call_mcalldetails_icons">
+											<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+										</span>
+										<span class="ms_my_service_call_mcalldetails_data">Scheduled start on - #: kendo.toString(kendo.parseDate(data.sch_start_on_date), 'dd MMM yyyy') # #: data.sch_start_on_hour # : #: data.sch_start_on_minute #</span>
+									</span>	
+								</div>
+							# } #
+						</div>
+						<div class="ms_my_service_call_mcalldetails_section_content">
+							# if(data.sch_finish_on_date != "") { #
+								<div class="ms_my_service_call_mcalldetails_section_content">
+									<span class="ms_my_service_call_mcalldetails_section_content_container">
+										<span class="ms_my_service_call_mcalldetails_icons">
+											<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+										</span>
+										<span class="ms_my_service_call_mcalldetails_data">Scheduled finish on - #: kendo.toString(kendo.parseDate(data.sch_finish_on_date), 'dd MMM yyyy') # #: data.sch_finish_on_hour # : #: data.sch_finish_on_minute #</span>
+									</span>	
+								</div>
+							# } #
+						</div>
+					<div class="ms_my_service_call_mcalldetails_section_content">
+						# if(data.act_start_on_date != "") { #
+							<div class="ms_my_service_call_mcalldetails_section_content">
+								<span class="ms_my_service_call_mcalldetails_section_content_container">
+									<span class="ms_my_service_call_mcalldetails_icons">
+										<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+									</span>
+									<span class="ms_my_service_call_mcalldetails_data">actual start on date - #: kendo.toString(kendo.parseDate(data.act_start_on_date), 'dd MMM yyyy') # #: data.act_start_on_hour # : #: data.act_start_on_minute #</span>
+								</span>	
+							</div>		
+						# } #
+					</div>
+					<div class="ms_my_service_call_mcalldetails_section_content">
+						# if(data.act_finish_on_date != "") { #
+							div class="ms_my_service_call_mcalldetails_section_content">
+								<span class="ms_my_service_call_mcalldetails_section_content_container">
+									<span class="ms_my_service_call_mcalldetails_icons">
+										<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+									</span>
+									<span class="ms_my_service_call_mcalldetails_data">actual finish on date - #: kendo.toString(kendo.parseDate(data.act_finish_on_date), 'dd MMM yyyy') # #: data.act_finish_on_hour # : #: data.act_finish_on_minute #</span>
+								</span>	
+							</div>		
+						# } #
+					</div>
+					<div class="ms_my_service_call_mcalldetails_section_content">
+						# if(data.closed_on_date != "")	{ #
+							div class="ms_my_service_call_mcalldetails_section_content">
+								<span class="ms_my_service_call_mcalldetails_section_content_container">
+									<span class="ms_my_service_call_mcalldetails_icons">
+										<i class="fas fa-clock ms_theme_bg_color7 ms_theme_color1 ms_my_service_call_mcalldetails_iconsize"></i>
+									</span>
+									<span class="ms_my_service_call_mcalldetails_data">closed on date - #: kendo.toString(kendo.parseDate(data.closed_on_date), 'dd MMM yyyy') # #: data.closed_on_hour # : #: data.closed_on_minute #</span>
+								</span>	
+							</div>		
+						# } #
+				    </div>
+			</div>	
+			<div class="ms_my_service_call_mcalldetails_section">
+				# if (data.attachments.length != 0) { #
+					<div class="ms_my_service_call_mcalldetails_section_content_container">				
+						<b class="ms_my_service_call_mcalldetails_title_label ms_theme_color1" data-ms-lbl="field" data-ms-lbl-src="my_service_call_MCALLDETAILS" data-ms-lbl-grpid="form" 
+                        data-ms-lbl-id="attachment_info"></b>
+					</div>
+					<div class="ms_my_service_call_mcalldetails_k-card-body">
+						<div class="ms_my_service_call_mcalldetails_k-card-description" style="display: -webkit-inline-box; flex-flow: wrap;">
+							# for (var i = 0; i < data.attachments.length; i++) { #
+								<div style="list-style:none;width: 6em;height: 6em;display: grid;place-content: center;" data-ms-widget-type="mButton" data-ms-button-group="form" data-ms-button-role="openDoc" data-ms-containr-param='{"docType":"#: data.attachments[i].type #", "docSrc":"#: mService.app.clientURL + '/' + 'content_store' + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + data.attachments[i].path  + '/' + mService.containR.variable.my_service_call.dSource.data()[mService.containR.variable.my_service_call.activePage].call_no + '/' +data.attachments[i].name#"}'>
+									<div class="ms_call_list_action">
+										<div class="ms_my_service_call_form_action_icon ms_theme_bg_color1" style="display: grid;place-items: center;">
+											<span class="ms_my_service_call_action_icon" style="display: grid;place-content: center;place-items: center;">
+												# if (data.attachments[i].type === "A") { # 
+													<i class="fas  #: mService.icons.knowledgebase.audio # ms_theme_bg_color7 ms_theme_color9" style="font-size:1em;"></i>
+												# } else if (data.attachments[i].type === "V") { # 
+													<i class="fas #: mService.icons.knowledgebase.video # ms_theme_bg_color7 ms_theme_color9" style="font-size:1em;"></i>
+												# } else if (data.attachments[i].type === "I") { # 
+													<i class="fas #: mService.icons.knowledgebase.image # ms_theme_bg_color7 ms_theme_color9" style="font-size:1em;"></i>
+												# } else if (data.attachments[i].type === "P") { # 
+													<i class="fas #: mService.icons.knowledgebase.pdf # ms_theme_bg_color7 ms_theme_color9" style="font-size:1em;"></i>
+												# } #
+											</span>
+										</div>
+									</div>
+
+										
+									
+								</div>	
+							# } #			
+						</div>
+					</div>
+				# } #		
+			</div>
+		</div>
+	</div>
+</script>

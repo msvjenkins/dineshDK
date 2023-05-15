@@ -1,0 +1,8 @@
+{
+	"containR_type" : "listview",
+	"containR_subtype" : "master",
+	"scrId" : "timecard",
+	"dSourceKey" : "TIMECARD",
+	"digitalReport": "false",
+	"saveDraft": "false"
+}

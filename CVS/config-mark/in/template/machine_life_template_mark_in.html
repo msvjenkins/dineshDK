@@ -1,0 +1,56 @@
+<style>
+	span.ms_machine_life_status{
+		display: inline-block;
+		float: right;
+		padding: .4em 0em;
+		position: absolute;
+		right: .2em;
+	}
+</style>
+<script id="machine_life_header_template" type="x-kendo-template">
+	<div style="color: \#0b8dd6;font-size: 1em;padding: 1em 0em 0em 1.1em;">
+			<span>#= data.customer_name #</span>
+		</div>
+		<div style="color: \#0b8dd6;font-size: 1em;padding: 1em 1em 0em 1.1em;">
+			<span>#= data.address_line_1# #= data.address_line_2# #= data.address_line_3# #= data.city# #= data.state_desc# #= data.country_desc# #= data.pincode#</span>
+		</div>
+		<div style="color: \#0b8dd6;font-size: 1em;padding: 1em 0em 0em 1.1em;">
+			<label data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="equipment_id" data-ms-lbl-src="machine_life" style="font-weight: bold;"></label>
+			<span>#= data.equipment_id #</span><br>
+			<label data-ms-lbl="field" data-ms-lbl-grpid="screen" data-ms-lbl-id="installation_date" data-ms-lbl-src="machine_life" style="font-weight: bold;"></label>
+			<span>#:kendo.toString(kendo.parseDate(data.installation_date), 'dd-MMM-yyyy') #</span>
+		</div>
+</script>
+<script id="machine_life_detail_template" type="x-kendo-template">
+	<div class="k-card-header">
+		<h5 class="k-card-title">#= data.event_type_desc ## if (data.event_category === "SE") { # #:data.event_category_desc# # } else if (data.event_category === "PE") { # #:data.event_category_desc# # } else if (data.event_category === "QU") { # #:data.event_category_desc# # } else if (data.event_category === "VI") { # #:data.event_category_desc# # } else { # # } #</h5>
+		# if (data.event_finish_date == "") { #
+		<span class="ms_machine_life_status"><img style="width: 23px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUEAAACdBAMAAADYq9fiAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACFQTFRFAAAA/4sA/4sA/4sA/4sA/4sA/4sA/4sA/4sA/4sA/4sA0fSvMAAAAAt0Uk5TAH//33BZgGY/IBm2sq+HAAABp0lEQVR4nO3cMU4DQQxA0WUSJESFOMGwuUAEF6BA1GkQN+AGiJYyV6CjzinZLUh2PB6UyEj2wv+lNcWTHSmp0nX7zvoAXXXNvGmHwgMbRG9UWXigQkzeIlmOvsJqicnbU5ejr1AsMXlrtHL0FZZL9LboRT9ycebkbdHL0Y88PbO3pFV8YQ7+MUT4G81T2AWorzmpRnumLOwa4WkhtIfQHkJ7CO0htIfQ3t8Q3onWw2whh62HywfR+PBJtBlm53J4vHDRi1bD8FYO142Hjy+i+wHzJnodHj7L4QYhQoQIESJEiBAhQoQIESJEiBAhQoQIESJEiBAhQoQIESJEiBAhQoQIESJEiBAhQoQIESJE+A+ElWalsdeNh0tFWGlGYcU+QXixLXsfh2K2bT78EI2zy13Z5zgUs113vNA3hPYQ2kNoD6E9hPYQ2kNoTxEeRjeesu9+FEZY4uT/VPcLmwhjlRGam5Ew/r+6hRV2MxImb4penpMw6Jmn3zTJG6MWXjg9cswzlz8okjenrlxhxCUKYLwlyhXGI1bAaHdWgLGIKjDQoevPIFn7AsvHzyzenbJ0AAAAAElFTkSuQmCC"/></span>
+		# } else { #
+		<span class="ms_machine_life_status"><i class="fas fa-check" style="color: \#28a745;font-size: 17px;"></i></span>
+		# } #
+	</div>
+	
+	# if (data.attachments.length != 0) { # 
+	<div class="k-card-body">
+		<div class="k-card-description" style="display: -webkit-inline-box; flex-flow: wrap;">
+		#for (var i = 0; i < data.attachments.length; i++){#
+			<div style="list-style:none;" data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="openDoc" data-ms-listview-param='{"dataDocType":"#: data.attachments[i].type #", "dataDocSrc":"#: mService.app.clientURL + '/' + 'content_store' + '/' + mService.app.getClientId() + '/' + mService.app.getCountryCode() + '/' + data.attachments[i].path #"}'>
+				<figure style="height:40px; margin-bottom: 0px;">
+					# if (data.attachments[i].type === "A") { # 
+						<i class="fas #: mService.icons.knowledgebase.audio #"></i> 
+					# } else if (data.attachments[i].type === "V") { # 
+						<i class="fas #: mService.icons.knowledgebase.video #"></i> 
+					# } else if (data.attachments[i].type === "I") { # 
+						<i class="fas #: mService.icons.knowledgebase.image #"></i>
+					# } else if (data.attachments[i].type === "P") { # 
+						<i class="fas #: mService.icons.knowledgebase.pdf #"></i>
+					# } #
+				</figure>
+			</div>	
+# } #			
+		</div>
+	</div>
+		
+	# } #
+</script>

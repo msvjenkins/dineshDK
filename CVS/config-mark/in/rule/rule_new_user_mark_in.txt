@@ -1,0 +1,9 @@
+OBJECT_BEGIN [NAME = "screen"] 
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "new_user"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#new_user_title,#new_user_firstname,#new_user_lastname,#new_user_mobile_no,#new_user_email_id,#new_user_designation,#new_user_working_location];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

@@ -1,0 +1,15 @@
+<script type="text/x-kendo-tmpl" id="my_user_asset_listView_template">
+	<div>
+		<table style="width:100%; border-collapse:collapse; line-height:1em; table-layout:fixed; border:none;">
+			<tr>
+				<td rowspan="2" colspan="15" style="border:none;">
+					<input type="checkbox" data-id="#: uid #" onChange="my_user_asset.customHandler.activeIndicationChange(this)" data-operator-no="#:equipment_name#"  # if(data.active_ind == "1"){ # checked # } # class="km-widget km-icon km-check ms_checkbox" style="float: left;" >
+				</td>
+				<td colspan="75"  style="font-weight: bold; font-size:1.2em; text-align:left; border:none;">Sl\\# #: equipment_name # </td>
+			</tr>
+			<tr>
+				<td colspan="75" align="left" style="color: \#888; border:none;" >#: equipment_type#    #: equipment_name #  </td>
+			</tr>
+		</table>
+	</div>
+</script>

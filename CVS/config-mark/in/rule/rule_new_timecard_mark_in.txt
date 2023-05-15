@@ -1,0 +1,78 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "new_timecard"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [Mandatory] ON [#new_timecard_from_time,#new_timecard_to_time,#new_timecard_feature];
+				APPLY [SetValue] ON [#new_timecard_task_id] VALUE ['0'];
+				APPLY [SetValue] ON [#new_timecard_entry_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#new_timecard_employee_id] VALUE [$mService.app.getUserId()];
+				APPLY [DISABLE] ON [#new_timecard_entry_date];
+				
+				APPLY [Hide] ON [#new_timecard_project_scall_ind, #new_timecard_alloc_type_code, #new_timecard_template_id, #new_timecard_project_id, #new_timecard_task_id, #new_timecard_employee_id];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+OBJECT_BEGIN [NAME = "field"] 
+	EVENT_BEGIN [NAME = "change"]
+		FIELD_BEGIN [NAME = "new_timecard_feature"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF (#new_timecard_feature === "S")
+				BEGIN
+					APPLY [SetValue] ON [#new_timecard_project_scall_ind] VALUE ['C'];
+					APPLY [Show] ON [#new_timecard_scall_ref_no,#new_timecard_call_category ];
+					APPLY [Hide] ON [#new_timecard_category];
+				END
+				ELSE 
+				BEGIN
+					APPLY [SetValue] ON [#new_timecard_project_scall_ind] VALUE ['G'];
+					APPLY [Show] ON [#new_timecard_category];
+					APPLY [Hide] ON [#new_timecard_scall_ref_no,#new_timecard_call_category ];
+				END
+			RULE_END
+		FIELD_END
+		FIELD_BEGIN [NAME = "new_timecard_to_time"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF ($mService.util.validateTime(#fromTime, #to_time).toString() === "true")
+				BEGIN
+					APPLY [SetValue] ON [#new_timecard_duration] VALUE [FN_GETTIMEDURATION(#new_timecard_from_time,#new_timecard_to_time)];
+					CONTINUE;
+				END
+				ELSE
+				BEGIN
+					APPLY [ShowToast] ON [#new_timecard] VALUE ['time_mismatch'];
+				END
+				
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				IF (#new_timecard_feature === "S")
+				BEGIN
+					APPLY [SetValue] ON [#new_timecard_alloc_type_code] VALUE [#new_timecard_call_category];
+				END
+				ELSE 
+				BEGIN
+					APPLY [SetValue] ON [#new_timecard_alloc_type_code] VALUE [#new_timecard_category];
+				END
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+			
+OBJECT_BEGIN [NAME = "datasource"] 
+	EVENT_BEGIN [NAME = "add"]
+		FIELD_BEGIN [NAME = "new_timecard"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [TIMECARD] VALUE [FN_ADDDATASOURCE({"alloc_to_project_scall_ind":"$mService.containR.variable.new_timecard.fields.project_scall_ind","alloc_to_type_code":"$mService.containR.variable.new_timecard.fields.alloc_type_code","call_ref_no": "$mService.containR.variable.new_timecard.fields.scall_ref_no","comments": "$mService.containR.variable.new_timecard.fields.comments","alloc_to_project_scall_ind": "$mService.containR.variable.new_timecard.fields.project_scall_ind","employee_id":"$mService.containR.variable.new_timecard.fields.employee_id","finish_hour": "$mService.containR.variable.new_timecard.fields.to_time","finish_minute":"$mService.containR.variable.new_timecard.fields.to_time","project_id": "$mService.containR.variable.new_timecard.fields.project_id","start_hour":"$mService.containR.variable.new_timecard.fields.from_time","start_minute": "$mService.containR.variable.new_timecard.fields.from_time","task_id":"$mService.containR.variable.new_timecard.fields.task_id","work_date": "$mService.containR.variable.new_timecard.fields.entry_date"})];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+

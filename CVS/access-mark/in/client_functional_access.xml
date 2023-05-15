@@ -1,0 +1,7 @@
+<functional_access_detail>
+  <protocol_type>https:</protocol_type>
+  <domain_name>mark-in-uat.mservice.net</domain_name>
+  <port_no>443</port_no>
+  <ws_portno>
+  </ws_portno>
+</functional_access_detail>

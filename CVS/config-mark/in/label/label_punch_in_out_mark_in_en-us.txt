@@ -1,0 +1,13 @@
+{
+	"field": {
+		"in": "In",
+		"out":"Out"
+	},
+	"screen": {
+		"title": "Mark Attendance"
+	}, 
+	"button": {
+		"punch_in":"Punch In",
+		"punch_out":"Punch Out"
+	}
+}

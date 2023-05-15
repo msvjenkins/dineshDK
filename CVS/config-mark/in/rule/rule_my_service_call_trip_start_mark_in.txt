@@ -1,0 +1,26 @@
+OBJECT_BEGIN [NAME = "screen"]
+	EVENT_BEGIN [NAME = "load"]
+		FIELD_BEGIN [NAME = "my_service_call_trip_start"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+				APPLY [SetValue] ON [#my_service_call_trip_start_device_id] VALUE [$mService.app.device_id];
+				APPLY [SetValue] ON [#my_service_call_trip_start_employee_id] VALUE [$mService.user.profile.login.employee_id];
+				APPLY [SetValue] ON [#my_service_call_trip_start_trip_start_finish_indicator] VALUE ["TS"];
+				APPLY [SetValue] ON [#my_service_call_trip_start_trip_start_date] VALUE [NEWDATE];
+				APPLY [SetValue] ON [#my_service_call_trip_start_trip_start_time] VALUE [NEWDATE];
+				APPLY [Disable] ON [#my_service_call_trip_start_trip_start_date,#my_service_call_trip_start_trip_start_time];
+				APPLY [Hide] ON [#my_service_call_trip_start_device_id,#my_service_call_trip_start_employee_id,#my_service_call_trip_start_transaction_type,#my_service_call_trip_start_trip_start_finish_indicator];
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END
+
+OBJECT_BEGIN [NAME = "button"]
+	EVENT_BEGIN [NAME = "click"]
+		FIELD_BEGIN [NAME = "submit"]
+			RULE_BEGIN [NAME = "rule 1", ORDER = "1"]
+			APPLY [SetValue] ON [$mService.containR.variable.my_service_call_trip_start.nonUIFormFields] VALUE [{"device_id":"$mService.app.device_id","employee_id":"$mService.user.profile.login.employee_id","trip_start_finish_indicator":"'TS'"}];
+			CONTINUE;
+			RULE_END
+		FIELD_END
+	EVENT_END
+OBJECT_END

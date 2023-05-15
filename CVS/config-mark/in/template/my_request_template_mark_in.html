@@ -1,0 +1,24 @@
+<script type="text/x-kendo-tmpl" id="my_request_listView_template">
+	<div class="ms_myrequest_cont">	
+		<div>
+			<span class="my_request_content1"><b> #:  call_no # </b></span>
+			<div class="ms_myrequest_status">
+				<span>#: call_status_desc # </span>
+			</div>
+		</div>
+		<p class="my_request_content2"><b> #: call_category_desc # </b></p>
+		<p class="my_request_content3"> #: asset_id # </p>
+		<p class="my_request_content4"> #: problem_description # </p>
+		<p class="my_request_content5"> #: comments # </p>
+	</div>
+	<div>
+		#if(feedback_ind === "1"){#
+			<span style="float:left;">
+				<p style="font-size: 1em; font-weight: bold; "> Your feedback please</p>
+			</span>
+			<span style="float:right;">
+				<img data-ms-widget-type="mButton" data-ms-button-group="misc" data-ms-button-role="feedback" data-role="button" data-id="#: uid #" src="../lib/mservice/styles/image/feedback.gif" style="height:20px; float: right;"/>
+			</span>
+		 #}#
+	</div>
+</script>
